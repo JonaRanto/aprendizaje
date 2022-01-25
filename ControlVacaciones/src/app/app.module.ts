@@ -8,12 +8,14 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { SkeletonComponent } from './layout/skeleton/skeleton.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { SidebarMenuComponent } from './layout/sidebar/sidebar-menu/sidebar-menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SkeletonComponent,
     SidebarComponent,
+    SidebarMenuComponent,
   ],
   imports: [
     BrowserModule,
