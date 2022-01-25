@@ -21,8 +21,9 @@ export class LoginComponent {
   }
 
   authenticate() {
+    console.log(this.loginForm.value)
     this.authService.login(this.loginForm.value).subscribe(r => {
-      
+      console.log(r)
     });
   }
 }
