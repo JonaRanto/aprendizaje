@@ -5,7 +5,7 @@ import { ERRORS_CONST } from '@data/constants';
 import { API_ROUTES, INTERNAL_ROUTES } from '@data/constants/routes';
 import { IApiResponse, IApiUserAuthenticate } from '@data/interfaces';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { map, catchError, find } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
