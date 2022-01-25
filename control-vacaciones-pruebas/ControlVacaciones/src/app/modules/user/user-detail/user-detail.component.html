@@ -1,0 +1,23 @@
+<div class="row w-100 m-0">
+    <div class="col-12">
+        <h1 class="text-success my-4">Detalle de usuario</h1>
+    </div>
+    <div class="col-12" *ngIf="currentUser; else loaderComponent;"> <!-- (Lazyloader) Como el param se carga luego de cargar la página, se usa el ngIf para que se espere a que el elemento se genere cuando el param ya esté listo y no lance un error por intentar cargar datos que no existen -->
+        <div class="row">
+            <div class="col-12 col-md-6 col-xl-3">
+                <img class="user-img" src="{{currentUser.avatar}}" alt="">
+            </div>
+            <div class="col-12 col-md-6 col-xl-9">
+                <h2 class="text-primary border-bottom pb-3">Detalle de {{currentUser.name}}</h2>
+                <h3 class="text-secondary">Edad: {{currentUser.age}}</h3>
+                <h3 class="text-secondary border-bottom pb-3" *ngIf="currentUser.work">Puesto: {{currentUser.work}}</h3>
+                <p class="text-secondary">{{currentUser.description}}</p>
+            </div>
+        </div>
+    </div>
+    <ng-template #loaderComponent>      <!-- Mientras el elemento del Lazyloader carga, se muestra una texto cargando en el else -->
+        <div class="col-12 text-center">
+            <h5 class="my-5">Cargando...</h5>
+        </div>
+    </ng-template>
+</div>

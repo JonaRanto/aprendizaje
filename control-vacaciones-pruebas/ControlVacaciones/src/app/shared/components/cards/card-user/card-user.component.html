@@ -1,0 +1,11 @@
+<div class="card" *ngIf="data" routerLink="/panel/user/{{data.id}}"> <!-- Si la propiedad de angular lleva [], significa que lo que vaya despues del igual se tomará como un texto, en caso de no llevarlo, se tomará como una variable -->
+    <div class="card-img">
+        <img src="{{data.avatar}}" alt="">
+    </div>
+    <div class="card-info">
+        <h2>{{data.name}}</h2>
+        <h4>Edad: {{data.age}}</h4>
+        <p>{{data.description}}</p>
+        <p *ngIf="data.work">{{data.work}}</p>
+    </div>
+</div>

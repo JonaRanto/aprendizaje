@@ -1,0 +1,14 @@
+<div class="d-flex align-items-center" style="background: rgb(234, 237, 244); min-height: 100vh; ">
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)" class="container bg-light col-3">
+    <h1 class="h2 mb-3 fw-normal text-center mt-3">Iniciar sesión</h1>
+    <div class="form-floating">
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email">
+      <label for="floatingInput">Email</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="pass">
+      <label for="floatingPassword">Contraseña</label>
+    </div>
+    <input type="submit" class="w-100 btn btn-lg btn-primary mt-3 mb-4" value="Iniciar sesión">
+  </form>
+</div>

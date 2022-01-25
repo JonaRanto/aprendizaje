@@ -1,0 +1,40 @@
+<div class="container col-10 d-flex" style="margin-top: 100px;">
+    <div class="container">
+        <h1 class="h4 text-center">Historial de solicitudes</h1>
+        <hr>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Fecha de solicitud</th>
+                <th scope="col">Fecha de salida</th>
+                <th scope="col">Fecha de entrada</th>
+                <th scope="col">Detalle de solicitud</th>
+                <th scope="col">Estado</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let solicitud of solicitudes">
+                <th class="table-success" *ngIf="solicitud.estado=='Aceptada'" scope="row">{{solicitud.id}}</th>
+                <td class="table-success" *ngIf="solicitud.estado=='Aceptada'">{{solicitud.fechaSolicitud}}</td>
+                <td class="table-success" *ngIf="solicitud.estado=='Aceptada'">{{solicitud.fechaSalida}}</td>
+                <td class="table-success" *ngIf="solicitud.estado=='Aceptada'">{{solicitud.fechaEntrada}}</td>
+                <td class="table-success" *ngIf="solicitud.estado=='Aceptada'">{{solicitud.detalle}}</td>
+                <td class="table-success" *ngIf="solicitud.estado=='Aceptada'">{{solicitud.estado}}</td>
+                <th class="table-danger" *ngIf="solicitud.estado=='Rechazada'" scope="row">{{solicitud.id}}</th>
+                <td class="table-danger" *ngIf="solicitud.estado=='Rechazada'">{{solicitud.fechaSolicitud}}</td>
+                <td class="table-danger" *ngIf="solicitud.estado=='Rechazada'">{{solicitud.fechaSalida}}</td>
+                <td class="table-danger" *ngIf="solicitud.estado=='Rechazada'">{{solicitud.fechaEntrada}}</td>
+                <td class="table-danger" *ngIf="solicitud.estado=='Rechazada'">{{solicitud.detalle}}</td>
+                <td class="table-danger" *ngIf="solicitud.estado=='Rechazada'">{{solicitud.estado}}</td>
+                <th class="table-secondary" *ngIf="solicitud.estado=='Pendiente'" scope="row">{{solicitud.id}}</th>
+                <td class="table-secondary" *ngIf="solicitud.estado=='Pendiente'">{{solicitud.fechaSolicitud}}</td>
+                <td class="table-secondary" *ngIf="solicitud.estado=='Pendiente'">{{solicitud.fechaSalida}}</td>
+                <td class="table-secondary" *ngIf="solicitud.estado=='Pendiente'">{{solicitud.fechaEntrada}}</td>
+                <td class="table-secondary" *ngIf="solicitud.estado=='Pendiente'">{{solicitud.detalle}}</td>
+                <td class="table-secondary" *ngIf="solicitud.estado=='Pendiente'">{{solicitud.estado}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

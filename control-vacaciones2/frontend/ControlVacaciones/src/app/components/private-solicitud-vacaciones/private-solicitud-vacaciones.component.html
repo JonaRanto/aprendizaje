@@ -1,0 +1,15 @@
+<div class="container col-10 d-flex" style="margin-top: 100px;">
+    <div class="container">
+        <h1 class="h4 text-center">Solicitud de vacaciones</h1>
+        <hr>
+        <mat-form-field appearance="fill">
+            <mat-label>Rango de fechas</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+              <input matStartDate placeholder="Start date">
+              <input matEndDate placeholder="End date">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
+    </div>
+</div>

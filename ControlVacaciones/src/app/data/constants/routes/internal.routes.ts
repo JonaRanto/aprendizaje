@@ -1,0 +1,37 @@
+export const ROUTES_PATHS = {
+    AUTH: {
+        DEFAULT: 'auth',
+        LOGIN: 'login'
+    },
+    PANEL: {
+        DEFAULT: 'panel',
+        HISTORY: 'history',
+        REQUESTS: 'requests'
+    }
+};
+
+export const INTERNAL_PATHS = {
+    /**
+     * AUTHENTICATION
+     */
+    AUTH_DEFAULT: `${ROUTES_PATHS.AUTH.DEFAULT}`,
+    AUTH_LOGIN: `${ROUTES_PATHS.AUTH.LOGIN}`,
+    /**
+     * PANEL
+     */
+    PANEL_DEFAULT: `${ROUTES_PATHS.PANEL.DEFAULT}`,
+    PANEL_HISTORY: `${ROUTES_PATHS.PANEL.HISTORY}`,
+    PANEL_REQUESTS: `${ROUTES_PATHS.PANEL.REQUESTS}`,
+}
+
+export const INTERNAL_ROUTES = {
+    /**
+     * AUTHENTICATION
+     */
+    AUTH_LOGIN: `/${INTERNAL_PATHS.AUTH_DEFAULT}/${INTERNAL_PATHS.AUTH_LOGIN}`,
+    /**
+     * PANEL
+     */
+    PANEL_HISTORY: `/${INTERNAL_PATHS.PANEL_DEFAULT}/${INTERNAL_PATHS.PANEL_HISTORY}`,
+    PANEL_REQUESTS: `/${INTERNAL_PATHS.PANEL_REQUESTS}/${INTERNAL_PATHS.PANEL_REQUESTS}`,
+}

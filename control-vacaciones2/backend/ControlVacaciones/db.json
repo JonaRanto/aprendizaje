@@ -1,0 +1,38 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "name": "Admin",
+      "email": "admin@admin.com",
+      "pass": "admin",
+      "rol": "Jefatura"
+    },
+    {
+      "id": 2,
+      "name": "Test",
+      "email": "test@test.com",
+      "pass": "test",
+      "rol": "Empleado"
+    }
+  ],
+  "solicitudes": [
+    {
+      "id": 1,
+      "fechaSolicitud": "12-01-2022",
+      "fechaSalida": "12-01-2022",
+      "fechaEntrada": "14-01-2022",
+      "detalle": "detalle",
+      "estado": "Rechazada",
+      "idUsuario": 2
+    },
+    {
+      "id": 2,
+      "fechaSolicitud": "14-01-2022",
+      "fechaSalida": "14-01-2022",
+      "fechaEntrada": "16-01-2022",
+      "detalle": "anterior rechazada :c",
+      "estado": "Pendiente",
+      "idUsuario": 2
+    }
+  ]
+}

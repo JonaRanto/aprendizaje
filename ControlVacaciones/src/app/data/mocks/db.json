@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Admin",
+      "email": "admin@admin.com",
+      "pass": "!123qweQWE",
+      "role": "Jefatura"
+    },
+    {
+      "id": 2,
+      "name": "Test",
+      "email": "test@test.com",
+      "pass": "test",
+      "role": "Empleado"
+    }
+  ],
+  "requests": [
+    {
+      "id": 1,
+      "requestDate": "12-01-2022",
+      "departureDate": "12-01-2022",
+      "returnDate": "14-01-2022",
+      "detail": "detalle",
+      "state": "Rechazada",
+      "idUser": 2
+    },
+    {
+      "id": 2,
+      "requestDate": "14-01-2022",
+      "departureDate": "14-01-2022",
+      "returnDate": "16-01-2022",
+      "detail": "anterior rechazada :c",
+      "state": "Pendiente",
+      "idUser": 2
+    }
+  ]
+}
