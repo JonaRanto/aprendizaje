@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { AuthGuard } from "@core/guards/auth.guard";
 import { INTERNAL_PATHS, INTERNAL_ROUTES } from "@data/constants/routes";
 import { HistoryComponent } from "./history/history.component";
 import { RequestComponent } from "./request/request.component";
@@ -7,11 +8,13 @@ import { RequestComponent } from "./request/request.component";
 const routes: Routes = [
     {
         path: INTERNAL_PATHS.PANEL_HISTORY,
-        component: HistoryComponent
+        component: HistoryComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: INTERNAL_PATHS.PANEL_REQUESTS,
-        component: RequestComponent
+        component: RequestComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: '**',
