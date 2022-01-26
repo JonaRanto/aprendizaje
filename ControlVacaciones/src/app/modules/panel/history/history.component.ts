@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { IApiRequest, IApiResponse } from '@data/interfaces';
+import { AuthService } from '@data/services';
+import { RequestService } from '@data/services';
 
 @Component({
   selector: 'app-history',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryComponent implements OnInit {
 
-  constructor() { }
+  public requestsHistory: IApiRequest[];
+
+  constructor(
+    private requestService: RequestService,
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
+    this.requestService.getRequestsFromUser(this.authService.getUser.id)
+      .subscribe((r: IApiResponse) => {
+        this.requestsHistory = r.data.slice().reverse();
+        console.log(r.data);
+      })
   }
 
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { CONST_LOGIN_PAGE, ERRORS_VALIDATIONS } from '@data/constants'; 
-import { AuthService } from '@data/services/api/auth.service';
+import { AuthService } from '@data/services';
 
 @Component({
   selector: 'app-login',

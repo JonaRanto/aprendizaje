@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiClass } from '@data/schema/ApiClass.class';
-import { ICardUser } from '@shared/components/cards/card-user/icard-user.metadata';
+import { ICardUser } from '@shared/components'; 
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 

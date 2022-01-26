@@ -14,14 +14,28 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th class="table-secondary" scope="row">holi</th>
-                <td class="table-secondary">holia</td>
-                <td class="table-secondary">holi</td>
-                <td class="table-secondary">holi</td>
-                <td class="table-secondary">holi</td>
-                <td class="table-secondary">xD</td>
-            </tr>
+                <ng-container *ngFor="let requestHistory of requestsHistory">
+                    <tr>
+                        <th class="table-success" *ngIf="requestHistory.state=='Aceptada'" scope="row">{{requestHistory.id}}</th>
+                        <td class="table-success" *ngIf="requestHistory.state=='Aceptada'">{{requestHistory.requestDate}}</td>
+                        <td class="table-success" *ngIf="requestHistory.state=='Aceptada'">{{requestHistory.departureDate}}</td>
+                        <td class="table-success" *ngIf="requestHistory.state=='Aceptada'">{{requestHistory.returnDate}}</td>
+                        <td class="table-success" *ngIf="requestHistory.state=='Aceptada'">{{requestHistory.detail}}</td>
+                        <td class="table-success" *ngIf="requestHistory.state=='Aceptada'">{{requestHistory.state}}</td>
+                        <th class="table-danger" *ngIf="requestHistory.state=='Rechazada'" scope="row">{{requestHistory.id}}</th>
+                        <td class="table-danger" *ngIf="requestHistory.state=='Rechazada'">{{requestHistory.requestDate}}</td>
+                        <td class="table-danger" *ngIf="requestHistory.state=='Rechazada'">{{requestHistory.departureDate}}</td>
+                        <td class="table-danger" *ngIf="requestHistory.state=='Rechazada'">{{requestHistory.returnDate}}</td>
+                        <td class="table-danger" *ngIf="requestHistory.state=='Rechazada'">{{requestHistory.detail}}</td>
+                        <td class="table-danger" *ngIf="requestHistory.state=='Rechazada'">{{requestHistory.state}}</td>
+                        <th class="table-warning" *ngIf="requestHistory.state=='Pendiente'" scope="row">{{requestHistory.id}}</th>
+                        <td class="table-warning" *ngIf="requestHistory.state=='Pendiente'">{{requestHistory.requestDate}}</td>
+                        <td class="table-warning" *ngIf="requestHistory.state=='Pendiente'">{{requestHistory.departureDate}}</td>
+                        <td class="table-warning" *ngIf="requestHistory.state=='Pendiente'">{{requestHistory.returnDate}}</td>
+                        <td class="table-warning" *ngIf="requestHistory.state=='Pendiente'">{{requestHistory.detail}}</td>
+                        <td class="table-warning" *ngIf="requestHistory.state=='Pendiente'">{{requestHistory.state}}</td>
+                    </tr>
+                </ng-container>
             </tbody>
         </table>
     </div>

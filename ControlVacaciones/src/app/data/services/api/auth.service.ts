@@ -42,7 +42,7 @@ export class AuthService {
     const response = { error: true, msg: ERRORS_CONST.LOGIN.USER_NOT_FOUND, data: null }; // La respuesta se inicializa con un valor de error por defecto y sin datos
     return this.http.get<IApiUserAuthenticate[]>(`${API_ROUTES.AUTH.LOGIN}?email=${data.email}&pass=${data.pass}`)  // Se hace un get con el tipo de la respuesta a la url
     .pipe(  // Aceptar el observable y se suscribe automaticamente (observable: Obtiene los datos una vez se hayan cargado sin intentarlo antesde que carguen)
-      map(r => {  // Map obtiene un observable como entrada, aplica una funciona los valores emitidos por el observable y los transforma en un nuevo valor
+      map((r: IApiUserAuthenticate[]) => {  // Map obtiene un observable como entrada, aplica una funciona los valores emitidos por el observable y los transforma en un nuevo valor
         if (r.length === 1) {
           response.error = false;
           response.msg = 'Autenticación correcta!';

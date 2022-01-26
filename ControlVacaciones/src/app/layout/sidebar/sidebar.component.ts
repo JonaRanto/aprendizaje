@@ -11,7 +11,7 @@ import { AuthService } from '@data/services';
 })
 export class SidebarComponent implements OnInit {
 
-  public name = 'Jona'
+  public name: string;
   public menus: ISidebarMenu[] = SIDEBAR_MENUS;
   public logoutMenu: ISidebarMenu;
 
@@ -26,6 +26,7 @@ export class SidebarComponent implements OnInit {
         }
       ]
     }
+    this.name = this.authService.getUser.name
   }
   ngOnInit(): void {
   }

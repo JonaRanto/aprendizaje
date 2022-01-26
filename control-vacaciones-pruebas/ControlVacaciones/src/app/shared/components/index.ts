@@ -27,3 +27,4 @@ export * from './link-a/link-a.component';
 export * from './cards/card-user/card-user.component';
 export * from './carousel/carousel.component';
 export * from './loaders/card-loader/card-loader.component';
+export * from './cards/card-user/icard-user.metadata'
