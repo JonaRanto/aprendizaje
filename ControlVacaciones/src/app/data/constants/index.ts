@@ -4,3 +4,4 @@ export * from './errors/errors.const';
 
 // PAGES
 export * from './pages/login/login.const';
+export * from './pages/requests/requests.const'

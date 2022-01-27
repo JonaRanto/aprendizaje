@@ -6,12 +6,13 @@
             <div class="container">
                 <h4>Rango de fechas</h4>
                 <app-datepicker (eventEmitter)="eventEmitted($event)"></app-datepicker>
+                <small class="main_validator bg-danger text-light" *ngIf="dateRangeValidated && requestForm.get('detail').touched">{{errors_validations.REQUIRED_REQUEST_DATE_RANGE}}</small>
             </div>
             <div class="container d-flex flex-column">
                 <h4>Detalle de la solicitud</h4>
                 <textarea cols="1" rows="5" formControlName="detail"></textarea>
-                <small class="main_validator bg-danger text-light" *ngIf="requestForm.get('detail').hasError('required') && requestForm.get('detail').touched">asd</small>
-                <button class="btn btn-lg btn-primary w-50 mt-3" (click)="sendRequest()">Solicitar</button>
+                <small class="main_validator bg-danger text-light" *ngIf="requestForm.get('detail').hasError('required') && requestForm.get('detail').touched">{{errors_validations.REQUIRED_REQUEST_DETAIL}}</small>
+                <button class="btn btn-lg btn-primary w-50 mt-3" [disabled]="requestValidated" (click)="sendRequest()">Solicitar</button>
             </div>
         </div>
     </form>

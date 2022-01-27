@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { CONST_REQUESTS_PAGE } from '@data/constants/pages/requests/requests.const';
+import { ERRORS_VALIDATIONS } from '@data/constants';
+import { CONST_REQUESTS_PAGE } from '@data/constants'; 
 import { IApiResponse } from '@data/interfaces';
 import { AuthService, RequestService } from '@data/services';
 
@@ -12,6 +13,7 @@ import { AuthService, RequestService } from '@data/services';
 export class RequestComponent {
 
   public data = CONST_REQUESTS_PAGE;
+  public errors_validations = ERRORS_VALIDATIONS;
   public currentDate: string = null;
   public fromDate: string = null;
   public toDate: string = null;
@@ -26,15 +28,18 @@ export class RequestComponent {
   }
 
   sendRequest() {
-    console.log(this.fromDate, this.toDate, this.currentDate, this.requestForm.value.detail);
-    // this.requestService.postRequest(
-    //   this.authService.getUser.id,
-    //   this.fromDate, this.toDate,
-    //   this.currentDate,
-    //   this.requestForm.value.detail)
-    //   .subscribe((r: IApiResponse) => {
-    //     console.log(r)
-    //   })
+    if (this.fromDate != null && this.toDate === null){ 
+      this.toDate = this.fromDate;
+    }
+    this.requestService.postRequest(
+      this.authService.getUser.id,
+      this.fromDate,
+      this.toDate,
+      this.currentDate,
+      this.requestForm.value.detail)
+      .subscribe((r: IApiResponse) => {
+        console.log(r)
+      })
   }
 
   eventEmitted(e) {
@@ -45,5 +50,20 @@ export class RequestComponent {
     } else {
       this.toDate = null;
     }
+  }
+
+  get requestValidated() {
+    if (!this.dateRangeValidated && !this.requestForm.invalid) {
+      return false;
+    }
+    return true;
+  }
+
+  get dateRangeValidated() {
+    if (this.fromDate != null
+    && this.currentDate != null) {
+      return false;
+    }
+    return true;
   }
 }
