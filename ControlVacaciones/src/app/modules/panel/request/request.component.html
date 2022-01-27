@@ -3,7 +3,7 @@
         <h1 class="h3 text-center">Solicitud de vacaciones</h1>
         <hr>
         <div class="container d-flex">
-            <div class="container">
+            <div class="container d-flex flex-column">
                 <h4>Rango de fechas</h4>
                 <app-datepicker (eventEmitter)="eventEmitted($event)"></app-datepicker>
                 <small class="main_validator bg-danger text-light" *ngIf="dateRangeValidated && requestForm.get('detail').touched">{{errors_validations.REQUIRED_REQUEST_DATE_RANGE}}</small>
