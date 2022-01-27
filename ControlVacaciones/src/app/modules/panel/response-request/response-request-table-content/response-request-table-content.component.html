@@ -1,0 +1,29 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Empleado</th>
+            <th scope="col">Fecha de solicitud</th>
+            <th scope="col">Fecha de salida</th>
+            <th scope="col">Fecha de entrada</th>
+            <th scope="col">Detalle</th>
+            <th scope="col">Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let requestResponse of data">
+            <tr>
+                <th scope="row">{{requestResponse.id}}</th>
+                <th>{{requestResponse.employee}}</th>
+                <th>{{requestResponse.requestDate}}</th>
+                <th>{{requestResponse.departureDate}}</th>
+                <th>{{requestResponse.returnDate}}</th>
+                <th>{{requestResponse.detail}}</th>
+                <th>
+                    <button>Aceptar</button>
+                    <button>Rechazar</button>
+                </th>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ERRORS_CONST } from '@data/constants';
 import { API_ROUTES } from '@data/constants/routes';
-import { IApiResponse, IApiRequest } from '@data/interfaces';
+import { IApiResponse, IApiRequest, IApiUserAuthenticate } from '@data/interfaces';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
@@ -29,7 +29,7 @@ export class RequestService {
           }
           return response;
         }),
-        catchError(e => {
+        catchError(_ => {
           return of(response);
         })
       )
@@ -59,6 +59,41 @@ export class RequestService {
           response.msg = 'Se ha realizado la solicitud correctamente!';
           response.data = data;
           return response;
+        }),
+        catchError(_ => {
+          return of(response);
+        })
+      )
+  }
+
+  getRequests(): Observable<IApiResponse> {
+    const response = { error: true, msg: ERRORS_CONST.REQUEST.REQUESTS_NOT_FOUND, data: null };
+    return this.http.get<IApiRequest[]>(`${API_ROUTES.PANEL.REQUEST}`)
+      .pipe(
+        map((r: IApiRequest[]) => {
+          response.error = false;
+          response.msg = `Se han encontrado ${r.length} solicitudes!`;
+          response.data = r;
+          return response;
+        }),
+        catchError(_ => {
+          return of(response);
+        })
+      )
+  }
+
+  getNameUserById(idUser: number): Observable<IApiResponse> {
+    const response = { error: true, msg: ERRORS_CONST.REQUEST.REQUESTS_NOT_FOUND, data: null };
+    return this.http.get<IApiUserAuthenticate[]>(`${API_ROUTES.AUTH.LOGIN}?id=${idUser}`)
+      .pipe(
+        map((r: IApiUserAuthenticate[]) => {
+          response.error = false;
+          response.msg = 'Se ha realizado la solicitud correctamente!';
+          response.data = r[0].name;
+          return response;
+        }),
+        catchError(_ => {
+          return of(response);
         })
       )
   }

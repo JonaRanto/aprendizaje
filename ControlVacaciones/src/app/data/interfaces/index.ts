@@ -5,3 +5,4 @@ export * from './api/iapi-request.metadata'
 
 // Interfaces UI
 export * from './ui/isidebar-menu.metadata';
+export * from './ui/iresponse-request-table-content.metadata'
