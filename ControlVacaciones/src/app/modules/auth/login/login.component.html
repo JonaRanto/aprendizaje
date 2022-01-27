@@ -13,6 +13,6 @@
       <small class="bg-danger text-light px-2 py-1 rounded" *ngIf="loginForm.get('pass').hasError('pattern') && loginForm.get('pass').touched">{{errors_validations.REQUIRED_PASS_PATTERN}}</small>
       <small class="bg-danger text-light px-2 py-1 rounded" *ngIf="loginForm.get('pass').hasError('required') && loginForm.get('pass').touched">{{errors_validations.REQUIRED_PASS_FIELD}}</small>
     </div>
-    <button type="submit" class="w-100 btn btn-lg btn-primary my-3" [disabled]="loginForm.invalid" (click)="authenticate()">Iniciar sesión</button>
+    <button class="w-100 btn btn-lg btn-primary my-3" [disabled]="loginForm.invalid" (click)="authenticate()">Iniciar sesión</button>
   </form>
 </div>

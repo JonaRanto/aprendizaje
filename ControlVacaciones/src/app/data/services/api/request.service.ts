@@ -17,7 +17,7 @@ export class RequestService {
 
   getRequestsFromUser(idUser: number): Observable<IApiResponse> {
     const response = { error: true, msg: ERRORS_CONST.REQUEST.HISTORY_NOT_FOUND, data: null }
-    return this.http.get<IApiRequest[]>(`${API_ROUTES.PANEL.REQUEST}?idUser=2`)
+    return this.http.get<IApiRequest[]>(`${API_ROUTES.PANEL.REQUEST}?idUser=${idUser}`)
       .pipe(
         map((r: IApiRequest[]) => {
           if (r.length > 0) {
@@ -31,6 +31,34 @@ export class RequestService {
         }),
         catchError(e => {
           return of(response);
+        })
+      )
+  }
+
+  postRequest(
+    idUser: number,
+    fromDate: string,
+    toDate: string,
+    currentDate: string,
+    detail: string
+  ): Observable<IApiResponse> {
+    const response = { error: true, msg: ERRORS_CONST.REQUEST.REQUEST_ERROR, data: null };
+    let data: IApiRequest = {
+      id: null,
+      requestDate: currentDate,
+      departureDate: fromDate,
+      returnDate: toDate,
+      detail: detail,
+      state: 'Pendiente',
+      idUser: idUser
+    };
+    return this.http.post<IApiRequest>(`${API_ROUTES.PANEL.REQUEST}`, data)
+      .pipe(
+        map(_ => {
+          response.error = false;
+          response.msg = 'Se ha realizado la solicitud correctamente!';
+          response.data = data;
+          return response;
         })
       )
   }

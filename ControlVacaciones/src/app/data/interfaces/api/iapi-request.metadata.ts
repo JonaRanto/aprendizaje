@@ -1,5 +1,5 @@
 export interface IApiRequest {
-    id: number,
+    id?: number,
     requestDate: string,
     departureDate: string,
     returnDate: string,

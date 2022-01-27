@@ -6,9 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { SkeletonComponent } from './layout/skeleton/skeleton.component';
-import { SidebarComponent } from './layout/sidebar/sidebar.component';
-import { SidebarMenuComponent } from './layout/sidebar/sidebar-menu/sidebar-menu.component';
+import { SkeletonComponent } from '@layout/skeleton/skeleton.component';
+import { SidebarComponent } from '@layout/sidebar/sidebar.component'; 
+import { SidebarMenuComponent } from '@layout/sidebar/sidebar-menu/sidebar-menu.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SidebarMenuComponent } from './layout/sidebar/sidebar-menu/sidebar-menu
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    SharedModule
+    SharedModule,
+    NgbModule
   ],
   providers: [
     {

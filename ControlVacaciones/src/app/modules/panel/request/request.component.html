@@ -1,1 +1,18 @@
-<p>request works!</p>
+<div class="main_request container col-10 d-flex">
+    <form [formGroup]="requestForm" class="container">
+        <h1 class="h3 text-center">Solicitud de vacaciones</h1>
+        <hr>
+        <div class="container d-flex">
+            <div class="container">
+                <h4>Rango de fechas</h4>
+                <app-datepicker (eventEmitter)="eventEmitted($event)"></app-datepicker>
+            </div>
+            <div class="container d-flex flex-column">
+                <h4>Detalle de la solicitud</h4>
+                <textarea cols="1" rows="5" formControlName="detail"></textarea>
+                <small class="main_validator bg-danger text-light" *ngIf="requestForm.get('detail').hasError('required') && requestForm.get('detail').touched">asd</small>
+                <button class="btn btn-lg btn-primary w-50 mt-3" (click)="sendRequest()">Solicitar</button>
+            </div>
+        </div>
+    </form>
+</div>

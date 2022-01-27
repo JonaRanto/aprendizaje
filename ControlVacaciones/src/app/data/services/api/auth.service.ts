@@ -55,7 +55,7 @@ export class AuthService {
         }
         return response;
       }),
-      catchError(e => {       // catchError se lanza en caso de que hayan errores en el observable, los captura y devuelve un error
+      catchError(_ => {       // catchError se lanza en caso de que hayan errores en el observable, los captura y devuelve un error
         return of(response);  // La funcion of crea una lista de elementos
       })
     );
