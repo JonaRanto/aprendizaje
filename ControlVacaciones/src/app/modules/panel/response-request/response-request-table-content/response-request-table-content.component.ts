@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { IResponseRequestTableContent } from '@data/interfaces';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-response-request-table-content',
@@ -9,10 +10,15 @@ import { IResponseRequestTableContent } from '@data/interfaces';
 export class ResponseRequestTableContentComponent implements OnInit {
 
   @Input() data: IResponseRequestTableContent;
+  @Output() eventEmitter: EventEmitter<[string, number]> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  actionSelection(action: string, idRequest: number): void {
+    this.eventEmitter.emit([action, idRequest]);
   }
 
 }

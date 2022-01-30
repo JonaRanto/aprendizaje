@@ -4,6 +4,7 @@ import { ERRORS_VALIDATIONS } from '@data/constants';
 import { CONST_REQUESTS_PAGE } from '@data/constants'; 
 import { IApiResponse } from '@data/interfaces';
 import { AuthService, RequestService } from '@data/services';
+import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-request',
@@ -42,7 +43,7 @@ export class RequestComponent {
       })
   }
 
-  eventEmitted(e) {
+  eventEmitted(e: NgbDate[]) {
     this.fromDate = `${e[0].day}-${e[0].month}-${e[0].year}`;
     this.currentDate = `${e[2].day}-${e[2].month}-${e[2].year}`;
     if (e[1] != null){

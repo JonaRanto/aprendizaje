@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { INTERNAL_ROUTES } from '@data/constants/routes';
 import { IApiRequest, IApiResponse, IResponseRequestTableContent } from '@data/interfaces';
 import { RequestService } from '@data/services';
 
@@ -7,13 +9,14 @@ import { RequestService } from '@data/services';
   templateUrl: './response-request.component.html',
   styleUrls: ['./response-request.component.scss']
 })
-export class ResponseRequestComponent implements OnInit {
+export class ResponseRequestComponent {
 
   public tableContent: IResponseRequestTableContent[] = [];
   public apiRequest: IApiRequest[] = [];
 
   constructor(
-    private requesService: RequestService
+    private requesService: RequestService,
+    private router: Router
     ) {
     this.requesService.getRequests()
       .subscribe((r: IApiResponse) => {
@@ -34,8 +37,41 @@ export class ResponseRequestComponent implements OnInit {
       });
   }
 
-  ngOnInit(): void {
-    
+  eventEmitted(e: Event): void {
+    if (e[0][0] === 'Aceptar') {
+      this.acceptRequest(e[0][1]);
+    }
+    if (e[0][0] === 'Rechazar') {
+      this.deleteRequest(e[0][1]);
+    }
   }
 
+  acceptRequest(idRequest: number): void {
+    this.requesService.getRequestById(idRequest)
+      .subscribe((r: IApiResponse) => {
+        r.data.state = "Aceptada";
+        this.requesService.updateRequest(r.data)
+          .subscribe((r: IApiResponse) => {
+            console.log(r.msg);
+            this.router.navigateByUrl('/',
+            {skipLocationChange: true}).then(()=> 
+            this.router.navigate([INTERNAL_ROUTES.PANEL_RESPONSES]));
+          })
+      })
+  }
+
+  deleteRequest(idRequest: number): void {
+    this.requesService.getRequestById(idRequest)
+      .subscribe((r: IApiResponse) => {
+        r.data.state = "Rechazada";
+        this.requesService.updateRequest(r.data)
+          .subscribe((r: IApiResponse) => {
+            console.log(r.msg);
+            this.router.navigateByUrl('/',
+            {skipLocationChange: true}).then(()=> 
+            this.router.navigate([INTERNAL_ROUTES.PANEL_RESPONSES]));
+          })
+      })
+  }
+  
 }

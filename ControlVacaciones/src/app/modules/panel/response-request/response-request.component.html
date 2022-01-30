@@ -3,7 +3,7 @@
         <h1 class="h4 text-center">Solicitudes pendientes</h1>
         <hr>
         <ng-container>
-            <app-response-request-table-content [data]="tableContent"></app-response-request-table-content>
+            <app-response-request-table-content [data]="tableContent" (eventEmitter)="eventEmitted([$event])"></app-response-request-table-content>
         </ng-container>
     </div>
 </div>

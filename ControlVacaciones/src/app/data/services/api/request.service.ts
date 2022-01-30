@@ -97,4 +97,37 @@ export class RequestService {
         })
       )
   }
+
+  getRequestById(idRequest: number): Observable<IApiResponse> {
+    const response = { error: true, msg: ERRORS_CONST.REQUEST.REQUEST_NOT_FOUND, data: null };
+    return this.http.get<IApiRequest[]>(`${API_ROUTES.PANEL.REQUEST}/${idRequest}`)
+     .pipe(
+       map((r: IApiRequest[]) => {
+         response.error = false;
+         response.msg = 'Se ha encontrado la solicitud!';
+         response.data = r;
+         return response;
+       }),
+       catchError(_ => {
+         return of(response);
+       })
+     )
+  }
+
+  updateRequest(request: IApiRequest): Observable<IApiResponse> {
+    const response = { error: true, msg: ERRORS_CONST.REQUEST.FAILED_TO_ACCEPT_REQUEST, data: null };
+    return this.http.put<IApiRequest>(`${API_ROUTES.PANEL.REQUEST}/${request.id}`, request)
+      .pipe(
+        map((r: IApiRequest) => {
+          response.error = false;
+          response.msg = 'Se ha aceptado el request!';
+          response.data = r;
+          return response;
+        }),
+        catchError(_ => {
+          return of(response);
+        })
+      )
+  }
+
 }

@@ -19,10 +19,11 @@
                 <th>{{requestResponse.departureDate}}</th>
                 <th>{{requestResponse.returnDate}}</th>
                 <th>{{requestResponse.detail}}</th>
-                <th>
-                    <button>Aceptar</button>
-                    <button>Rechazar</button>
+                <th *ngIf="requestResponse.state == 'Pendiente'">
+                    <button class="btn btn-success m-1" (click)="actionSelection('Aceptar', requestResponse.id)">Aceptar</button>
+                    <button class="btn btn-danger m-1" (click)="actionSelection('Rechazar', requestResponse.id)">Rechazar</button>
                 </th>
+                <th *ngIf="requestResponse.state != 'Pendiente'">{{requestResponse.state}}</th>
             </tr>
         </ng-container>
     </tbody>
