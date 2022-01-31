@@ -14,7 +14,7 @@
             </tr>
             </thead>
             <tbody>
-                <ng-container *ngFor="let requestHistory of requestsHistory">
+                <ng-container *ngFor="let requestHistory of apiRequest">
                     <tr>
                         <th class="table-success" *ngIf="requestHistory.state=='Aceptada'" scope="row">{{requestHistory.id}}</th>
                         <td class="table-success" *ngIf="requestHistory.state=='Aceptada'">{{requestHistory.requestDate}}</td>

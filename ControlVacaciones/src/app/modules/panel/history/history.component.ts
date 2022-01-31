@@ -10,7 +10,7 @@ import { RequestService } from '@data/services';
 })
 export class HistoryComponent implements OnInit {
 
-  public requestsHistory: IApiRequest[];
+  public apiRequest: IApiRequest[] = [];
 
   constructor(
     private requestService: RequestService,
@@ -20,8 +20,10 @@ export class HistoryComponent implements OnInit {
   ngOnInit(): void {
     this.requestService.getRequestsFromUser(this.authService.getUser.id)
       .subscribe((r: IApiResponse) => {
-        this.requestsHistory = r.data.slice().reverse();
-      })
+        if (r.data) { // Evitar error de slice al enviar un valor nulo
+          this.apiRequest = r.data.slice().reverse();
+        }
+      });
   }
 
 }
