@@ -9,17 +9,17 @@ import { AuthService } from '@data/services';
 export class NoAuthGuard implements CanActivate {
 
   constructor(
-    private routers: Router,
+    private router: Router,
     private authService: AuthService
   ) { }
 
   canActivate(
-    next: ActivatedRouteSnapshot,
+    route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
     ): boolean {
     const currentUser = this.authService.getUser; // Se obtiene el usuario actual
     if (currentUser) {
-      this.routers.navigateByUrl(INTERNAL_ROUTES.PANEL_HISTORY);  // En caso de que el usuario exista, se retornará a su ruta principal y regresará false
+      this.router.navigateByUrl(INTERNAL_ROUTES.PANEL_HISTORY);  // En caso de que el usuario exista, se retornará a su ruta principal y regresará false
       return false;
     }
     return true;  // Si el usuario no existe, se regresa un true
