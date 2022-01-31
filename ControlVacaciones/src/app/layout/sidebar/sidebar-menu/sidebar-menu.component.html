@@ -1,11 +1,13 @@
 <h5>{{data.title}}</h5>
 <ul class="nav nav-pills flex-column mb-auto">
     <ng-container *ngFor="let link of data.links">
-        <li class="nav-item">
-            <a class="nav-link text-white" [routerLink]="link.link ? link.link : null" (click)="link.method ? link.method() : null">
-                <svg class="bi me-2" width="16" height="16"></svg>
-                <span>{{link.name}}</span>
-            </a>
-        </li>
+        <ng-container *ngIf="hasPermission(link.roles)">
+            <li class="nav-item">
+                <a class="nav-link text-white" [routerLink]="link.link ? link.link : null" (click)="link.method ? link.method() : null">
+                    <svg class="bi me-2" width="16" height="16"></svg>
+                    <span>{{link.name}}</span>
+                </a>
+            </li>
+        </ng-container>
     </ng-container>
 </ul>

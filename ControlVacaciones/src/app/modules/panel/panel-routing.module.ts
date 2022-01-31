@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AuthGuard } from "@core/guards/auth.guard";
-import { INTERNAL_PATHS, INTERNAL_ROUTES } from "@data/constants/routes";
+import { INTERNAL_PATHS, INTERNAL_ROUTES, RESOURCES_BY_ROLES } from "@data/constants/routes";
 import { HistoryComponent } from "./history/history.component";
 import { RequestComponent } from "./request/request.component";
 import { ResponseRequestComponent } from "./response-request/response-request.component";
@@ -10,17 +10,20 @@ const routes: Routes = [
     {
         path: INTERNAL_PATHS.PANEL_HISTORY,
         component: HistoryComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
+        data: { roles: RESOURCES_BY_ROLES.PANEL_HISTORY }
     },
     {
         path: INTERNAL_PATHS.PANEL_REQUESTS,
         component: RequestComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
+        data: { roles: RESOURCES_BY_ROLES.PANEL_REQUESTS }
     },
     {
         path: INTERNAL_PATHS.PANEL_RESPONSES,
         component: ResponseRequestComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
+        data: { roles: RESOURCES_BY_ROLES.PANEL_RESPONSES }
     },
     {
         path: '**',

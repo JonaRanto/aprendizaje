@@ -11,7 +11,7 @@
       "id": 2,
       "name": "Test",
       "email": "test@test.com",
-      "pass": "test",
+      "pass": "!123qweQWE",
       "role": "Empleado"
     }
   ],
@@ -31,7 +31,25 @@
       "departureDate": "14-01-2022",
       "returnDate": "16-01-2022",
       "detail": "anterior rechazada :c",
-      "state": "Pendiente",
+      "state": "Rechazada",
+      "idUser": 2
+    },
+    {
+      "id": 3,
+      "requestDate": "31-1-2022",
+      "departureDate": "2-2-2022",
+      "returnDate": "6-2-2022",
+      "detail": "Vacaciones de verano",
+      "state": "Aceptada",
+      "idUser": 2
+    },
+    {
+      "id": 4,
+      "requestDate": "31-1-2022",
+      "departureDate": "17-2-2022",
+      "returnDate": "25-2-2022",
+      "detail": "FDSFDS",
+      "state": "Rechazada",
       "idUser": 2
     }
   ]

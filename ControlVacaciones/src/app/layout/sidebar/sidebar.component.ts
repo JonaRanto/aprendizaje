@@ -9,9 +9,10 @@ import { AuthService } from '@data/services';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent {
 
   public name: string;
+  public role: string
   public menus: ISidebarMenu[] = SIDEBAR_MENUS;
   public logoutMenu: ISidebarMenu;
 
@@ -25,10 +26,8 @@ export class SidebarComponent implements OnInit {
           method: () => this.authService.logout()
         }
       ]
-    }
-    this.name = this.authService.getUser.name
+    };
+    this.name = this.authService.getUser.name;
+    this.role = this.authService.getUser.role;
   }
-  ngOnInit(): void {
-  }
-
 }

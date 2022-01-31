@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ERRORS_VALIDATIONS } from '@data/constants';
 import { CONST_REQUESTS_PAGE } from '@data/constants'; 
+import { ROUTES_PATHS } from '@data/constants/routes';
 import { IApiResponse } from '@data/interfaces';
 import { AuthService, RequestService } from '@data/services';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
@@ -23,7 +25,8 @@ export class RequestComponent {
 
   constructor(
     private requestService: RequestService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) { 
     this.requestForm = this.data.REQUEST_FORM;
   }
@@ -40,6 +43,9 @@ export class RequestComponent {
       this.requestForm.value.detail)
       .subscribe((r: IApiResponse) => {
         console.log(r)
+        if (!r.error) {
+          this.router.navigateByUrl(ROUTES_PATHS.PANEL.HISTORY);
+        }
       })
   }
 

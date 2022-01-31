@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ERRORS_CONST } from '@data/constants';
 import { API_ROUTES, INTERNAL_ROUTES } from '@data/constants/routes';
+import { ROLES_ENUM } from '@data/enum';
 import { IApiResponse, IApiUserAuthenticate } from '@data/interfaces';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
@@ -51,7 +52,12 @@ export class AuthService {
           this.currentUser.next(response.data);  // Deja el usuario actual con lo obtenido en data
         }
         if (!response.error) {
-          this.router.navigateByUrl(INTERNAL_ROUTES.PANEL_HISTORY);
+          if (response.data.role == ROLES_ENUM.EMPLEADO) {
+            this.router.navigateByUrl(INTERNAL_ROUTES.PANEL_HISTORY);
+          }
+          else if (response.data.role == ROLES_ENUM.JEFATURA) {
+            this.router.navigateByUrl(INTERNAL_ROUTES.PANEL_RESPONSES);
+          }
         }
         return response;
       }),
@@ -69,5 +75,9 @@ export class AuthService {
 
   private setUserToLocalStorage(user: IApiUserAuthenticate) {
     localStorage.setItem(this.nameUserLS, JSON.stringify(user));    // Setea el user recibido dentro del LocalStorage indicado mediante el nombre del almacenamiento local
+  }
+
+  hasAccessToModule(roles: ROLES_ENUM[]) {
+    return this.getUser && roles.includes(this.getUser.role);
   }
 }

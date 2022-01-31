@@ -1,18 +1,26 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ROLES_ENUM } from '@data/enum';
 import { ISidebarMenu } from '@data/interfaces';
+import { AuthService } from '@data/services';
 
 @Component({
   selector: 'app-sidebar-menu',
   templateUrl: './sidebar-menu.component.html',
   styleUrls: ['./sidebar-menu.component.scss']
 })
-export class SidebarMenuComponent implements OnInit {
+export class SidebarMenuComponent {
 
-  @Input() data: ISidebarMenu;
+  @Input() data: ISidebarMenu
 
-  constructor() { }
+  constructor(
+    private authService: AuthService
+  ) { }
 
-  ngOnInit(): void {
+  hasPermission(roles: ROLES_ENUM[]): boolean {
+    if (roles) {
+      return this.authService.hasAccessToModule(roles);
+    }
+    return true;
   }
 
 }

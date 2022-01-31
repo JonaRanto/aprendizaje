@@ -19,6 +19,9 @@ export class AuthGuard implements CanActivate {
   ): boolean {
     const currentUser = this.authService.getUser; // Se obtiene el usuario actual
     if (currentUser) {
+      if (route.data.roles && !this.authService.hasAccessToModule(route.data.roles)) {
+        return false; 
+      }
       return true;  // Si el usuario existe, se regresa un true
     }
     this.router.navigate([INTERNAL_ROUTES.AUTH_LOGIN], { 
