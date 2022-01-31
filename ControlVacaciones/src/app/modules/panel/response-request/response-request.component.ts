@@ -11,30 +11,35 @@ import { RequestService } from '@data/services';
 })
 export class ResponseRequestComponent {
 
-  public tableContent: IResponseRequestTableContent[] = [];
+  public tableContent: IResponseRequestTableContent[];
   public apiRequest: IApiRequest[] = [];
 
   constructor(
     private requesService: RequestService,
     private router: Router
     ) {
+    this.updateTable();
+  }
+
+  updateTable(): void {
+    this.tableContent = [];
     this.requesService.getRequests()
-      .subscribe((r: IApiResponse) => {
-        this.apiRequest = r.data.slice().reverse();
-        for (let i = 0; i < this.apiRequest.length; i++) {
-          this.requesService.getNameUserById(this.apiRequest[i].idUser).subscribe((r: IApiResponse) => { 
-            this.tableContent.push({
-              id: this.apiRequest[i].id,
-              employee: r.data,
-              requestDate: this.apiRequest[i].requestDate,
-              departureDate: this.apiRequest[i].departureDate,
-              returnDate: this.apiRequest[i].returnDate,
-              detail: this.apiRequest[i].detail,
-              state: this.apiRequest[i].state
-            });
-           });
-        };
-      });
+    .subscribe((r: IApiResponse) => {
+      this.apiRequest = r.data.slice().reverse();
+      for (let i = 0; i < this.apiRequest.length; i++) {
+        this.requesService.getNameUserById(this.apiRequest[i].idUser).subscribe((r: IApiResponse) => { 
+          this.tableContent.push({
+            id: this.apiRequest[i].id,
+            employee: r.data,
+            requestDate: this.apiRequest[i].requestDate,
+            departureDate: this.apiRequest[i].departureDate,
+            returnDate: this.apiRequest[i].returnDate,
+            detail: this.apiRequest[i].detail,
+            state: this.apiRequest[i].state
+          });
+         });
+      };
+    });
   }
 
   eventEmitted(e: Event): void {
@@ -53,9 +58,7 @@ export class ResponseRequestComponent {
         this.requesService.updateRequest(r.data)
           .subscribe((r: IApiResponse) => {
             console.log(r.msg);
-            this.router.navigateByUrl('/',
-            {skipLocationChange: true}).then(()=> 
-            this.router.navigate([INTERNAL_ROUTES.PANEL_RESPONSES]));
+            this.updateTable();
           })
       })
   }
@@ -67,9 +70,7 @@ export class ResponseRequestComponent {
         this.requesService.updateRequest(r.data)
           .subscribe((r: IApiResponse) => {
             console.log(r.msg);
-            this.router.navigateByUrl('/',
-            {skipLocationChange: true}).then(()=> 
-            this.router.navigate([INTERNAL_ROUTES.PANEL_RESPONSES]));
+            this.updateTable();
           })
       })
   }

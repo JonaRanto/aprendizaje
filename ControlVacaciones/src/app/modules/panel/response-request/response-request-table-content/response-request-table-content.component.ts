@@ -7,15 +7,10 @@ import { EventEmitter } from '@angular/core';
   templateUrl: './response-request-table-content.component.html',
   styleUrls: ['./response-request-table-content.component.scss']
 })
-export class ResponseRequestTableContentComponent implements OnInit {
+export class ResponseRequestTableContentComponent {
 
   @Input() data: IResponseRequestTableContent;
   @Output() eventEmitter: EventEmitter<[string, number]> = new EventEmitter();
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   actionSelection(action: string, idRequest: number): void {
     this.eventEmitter.emit([action, idRequest]);
