@@ -1,0 +1,36 @@
+<div class="main_header">
+    <div class="main_header_content">
+        <div class="main_header_row">            
+            <div class="main_header_column_1">
+                <a href="{{logo.link}}">
+                    <img src="{{logo.img}}">
+                </a>
+            </div>            
+            <div class="main_header_column_2">
+                <div class="main_header_social_icons">
+                    <div class="main_header_icon" *ngFor="let icon of icons">
+                        <a class="fa {{icon.faClass}}" href="{{icon.link}}"></a>
+                    </div>
+                </div>
+            </div>            
+            <div class="main_header_column_3">
+                <div class="main_header_menus">
+                    <div class="main_header_menu" *ngFor="let menu of menus">
+                        <a class="main_header_menu_button" href="{{menu.link}}" target="{{menu.target}}">{{menu.name}}
+                            <span class="main_header_sub_menu" *ngIf="menu.subMenus"><i class="fa fa-chevron-down"></i></span>
+                        </a>
+                        <ul class="main_header_sub_menu_list">
+                            <ng-container *ngFor="let subMenu of menu.subMenus">
+                                <a class="main_header_sub_menu_button" href="{{subMenu.link}}" target="{{subMenu.target}}">
+                                    <li class="main_header_sub_menu_list_item">
+                                        {{subMenu.name}}
+                                    </li>
+                                </a>
+                            </ng-container>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

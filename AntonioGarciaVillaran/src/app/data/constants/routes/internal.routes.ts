@@ -1,0 +1,16 @@
+export const ROUTES_PATHS = {
+    HOME: {
+        DEFAULT: 'home',
+        CONTACT_US: 'contac-us'
+    }
+}
+
+export const INTERNAL_PATHS = {
+    HOME: ROUTES_PATHS.HOME.DEFAULT,
+    CONTACT_US: ROUTES_PATHS.HOME.CONTACT_US
+}
+
+export const INTERNAL_ROUTES = {
+    HOME: INTERNAL_PATHS.HOME,
+    CONTACT_US: `${INTERNAL_PATHS.HOME}/${INTERNAL_PATHS.CONTACT_US}`
+}

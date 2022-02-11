@@ -1,0 +1,93 @@
+.main_header {
+    width: 100%;
+    padding: 0 30px;
+    &_content{
+        max-width: 1140px;
+        margin: auto;
+    }
+    &_row {
+        display: flex;
+        padding: 10px 0;
+    }
+    &_column_1 {
+        text-align: center;
+        width: 10%;
+    }
+    &_column_2 {
+        width: 25%;
+        display: flex;
+        align-items: flex-end;
+    }
+    &_social_icons {
+        min-width: 150px;
+        display: flex;
+        justify-content: space-evenly;
+        & a {
+            color: initial;
+            text-decoration: initial;
+        }
+    }
+    &_icon {
+        display: inline-block;
+    }
+    &_column_3 {
+        width: 65%;
+    }
+    &_menus {
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+    &_menu {
+        font-family: "Source Sans Pro", sans-serif;
+        font-size: 1.2rem;
+        font-weight: 400;
+        margin: 3px 20px;
+        &_button {
+            color: gray;
+            text-decoration: initial;
+            padding: 5px;
+            border-bottom: solid white;
+            transition: color 0.2s ease-in-out, border-color 0.2s ease-out;
+            white-space: nowrap;
+            &:hover {
+                color: red;
+                border-bottom: solid red;
+            }
+        }
+        &:hover > ul{
+            display: block;
+        }
+    }
+    &_sub_menu {
+        font-size: 14px;
+        padding: 10px 0 10px 10px;
+        margin-top: -10px;
+        margin-bottom: -10px;
+        &_list {
+            list-style: none;
+            position: absolute;
+            padding: 0;
+            display: none;
+            &_item {
+                white-space: nowrap;
+                margin: 3px 20px 0px 0px;
+                font-family: "Source Sans Pro", sans-serif;
+                font-size: 0.8rem;
+                font-weight: 700;
+                padding: 10px 20px;
+                transition: 0.2s;
+                margin: 0;
+                &:hover {
+                    background-color: gray;
+                    color: white;
+                }
+            }
+        }
+        &_button {
+            color: gray;
+            text-decoration: initial;
+        }
+    }
+}
