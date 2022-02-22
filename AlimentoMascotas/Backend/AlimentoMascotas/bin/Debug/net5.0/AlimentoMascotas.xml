@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AlimentoMascotas</name>
+    </assembly>
+    <members>
+        <member name="M:AlimentoMascotas.Controllers.AditivoController.ObtenerAditivos">
+            <summary>
+            Se obtiene una lista de todos los aditivos existentes en la base de datos.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.AditivoController.ObtenerAditivo(System.Int32)">
+            <summary>
+            Se obtiene la información de un aditivo ingresando su identificador.
+            </summary>
+            <param name="aditivoId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.AditivoController.AgregarAditivo(AlimentoMascotas.Models.AditivoInput)">
+            <summary>
+            Se recibe la información de un aditivo y se añade a la base de datos.
+            </summary>
+            <param name="aditivo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.AditivoController.ActualizarAditivo(System.Int32,AlimentoMascotas.Models.AditivoInput)">
+            <summary>
+            Se recibe el identificador de un aditivo y la nueva informacion para actualizarlo.
+            </summary>
+            <param name="aditivoId"></param>
+            <param name="aditivo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.AditivoController.EliminarAditivo(System.Int32)">
+            <summary>
+            Se recibe el identificador de un aditivo y este se elimina de la base de datos.
+            </summary>
+            <param name="aditivoId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.AlimentoController.ObtenerAlimentos">
+            <summary>
+            Se obtiene una lista de todos los alimentos existentes en la base de datos.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.AlimentoController.ObtenerAlimento(System.Int32)">
+            <summary>
+            Se obtiene la información de un alimento ingresando su identificador.
+            </summary>
+            <param name="alimentoId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.AlimentoController.AgregarAlimento(AlimentoMascotas.Models.AlimentoInput)">
+            <summary>
+            Se recibe la información de un alimento y se añade a la base de datos.
+            </summary>
+            <param name="alimento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.AlimentoController.ActualizarAlimento(System.Int32,AlimentoMascotas.Models.AlimentoInput)">
+            <summary>
+            Se recibe el identificador de un alimento y la nueva informacion para actualizarlo.
+            </summary>
+            <param name="alimentoId"></param>
+            <param name="alimento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.AlimentoController.EliminarAlimento(System.Int32)">
+            <summary>
+            Se recibe el identificador de un alimento y este se elimina de la base de datos.
+            </summary>
+            <param name="alimentoId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.AlimentoController.AgregarIngredientesEnAlimento(System.Int32,System.Collections.Generic.List{AlimentoMascotas.Models.IngredienteEnAlimentoInput})">
+            <summary>
+            Agrega una lista de ingredientes a un alimento.
+            </summary>
+            <param name="alimentoId"></param>
+            <param name="ingredientesEnAlimento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.AlimentoController.AgregarAditivosEnAlimento(System.Int32,System.Collections.Generic.List{AlimentoMascotas.Models.AditivoEnAlimentoInput})">
+            <summary>
+            Agrega una lista de aditivos a un alimento.
+            </summary>
+            <param name="alimentoId"></param>
+            <param name="aditivosEnAlimento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.AlimentoController.AgregarAnaliticosEnAlimento(System.Int32,System.Collections.Generic.List{AlimentoMascotas.Models.AnaliticoEnAlimentoInput})">
+            <summary>
+            Agrega una lista de analiticos a un alimento.
+            </summary>
+            <param name="alimentoId"></param>
+            <param name="analiticosEnAlimento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.AnaliticoController.ObtenerAnaliticos">
+            <summary>
+            Se obtiene una lista de todos los analiticos existentes en la base de datos.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.AnaliticoController.ObtenerAnalitico(System.Int32)">
+            <summary>
+            Se obtiene la información de un analitico ingresando su identificador.
+            </summary>
+            <param name="analiticoId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.AnaliticoController.AgregarAnalitico(AlimentoMascotas.Models.AnaliticoInput)">
+            <summary>
+            Se recibe la información de un analitico y se añade a la base de datos.
+            </summary>
+            <param name="analitico"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.AnaliticoController.ActualizarAnalitico(System.Int32,AlimentoMascotas.Models.AnaliticoInput)">
+            <summary>
+            Se recibe el identificador de un analitico y la nueva informacion para actualizarlo.
+            </summary>
+            <param name="analiticoId"></param>
+            <param name="analitico"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.AnaliticoController.EliminarAnalitico(System.Int32)">
+            <summary>
+            Se recibe el identificador de un analitico y este se elimina de la base de datos.
+            </summary>
+            <param name="analiticoId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.IngredienteController.ObtenerIngredientes">
+            <summary>
+            Se obtiene una lista de todos los ingredientes existentes en la base de datos.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.IngredienteController.ObtenerIngrediente(System.Int32)">
+            <summary>
+            Se obtiene la información de un ingrediente ingresando su identificador.
+            </summary>
+            <param name="ingredienteId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.IngredienteController.AgregarIngrediente(AlimentoMascotas.Models.IngredienteInput)">
+            <summary>
+            Se recibe la información de un ingrediente y se añade a la base de datos.
+            </summary>
+            <param name="ingrediente"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.IngredienteController.ActualizarIngrediente(System.Int32,AlimentoMascotas.Models.IngredienteInput)">
+            <summary>
+            Se recibe el identificador de un ingrediente y la nueva informacion para actualizarlo.
+            </summary>
+            <param name="ingredienteId"></param>
+            <param name="ingrediente"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.IngredienteController.EliminarIngrediente(System.Int32)">
+            <summary>
+            Se recibe el identificador de un ingrediente y este se elimina de la base de datos.
+            </summary>
+            <param name="ingredienteId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AlimentoMascotas.Properties.Resources">
+            <summary>
+              Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:AlimentoMascotas.Properties.Resources.ResourceManager">
+            <summary>
+              Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:AlimentoMascotas.Properties.Resources.Culture">
+            <summary>
+              Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+            </summary>
+        </member>
+    </members>
+</doc>
