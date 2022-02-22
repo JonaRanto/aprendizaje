@@ -26,7 +26,7 @@
         </member>
         <member name="M:AlimentoMascotas.Controllers.AditivoController.ActualizarAditivo(System.Int32,AlimentoMascotas.Models.AditivoInput)">
             <summary>
-            Se recibe el identificador de un aditivo y la nueva informacion para actualizarlo.
+            Se recibe el identificador de un aditivo y la nueva información para actualizarlo.
             </summary>
             <param name="aditivoId"></param>
             <param name="aditivo"></param>
@@ -61,7 +61,7 @@
         </member>
         <member name="M:AlimentoMascotas.Controllers.AlimentoController.ActualizarAlimento(System.Int32,AlimentoMascotas.Models.AlimentoInput)">
             <summary>
-            Se recibe el identificador de un alimento y la nueva informacion para actualizarlo.
+            Se recibe el identificador de un alimento y la nueva información para actualizarlo.
             </summary>
             <param name="alimentoId"></param>
             <param name="alimento"></param>
@@ -120,7 +120,7 @@
         </member>
         <member name="M:AlimentoMascotas.Controllers.AnaliticoController.ActualizarAnalitico(System.Int32,AlimentoMascotas.Models.AnaliticoInput)">
             <summary>
-            Se recibe el identificador de un analitico y la nueva informacion para actualizarlo.
+            Se recibe el identificador de un analitico y la nueva información para actualizarlo.
             </summary>
             <param name="analiticoId"></param>
             <param name="analitico"></param>
@@ -131,6 +131,76 @@
             Se recibe el identificador de un analitico y este se elimina de la base de datos.
             </summary>
             <param name="analiticoId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.EspecieController.ObtenerEspecies">
+            <summary>
+            Se obtiene una lista de todas las especies existentes en la base de datos.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.EspecieController.ObtenerEspecie(System.Int32)">
+            <summary>
+            Se obtiene la información de una especie ingresando su identificador.
+            </summary>
+            <param name="especieId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.EspecieController.AgregarEspecie(AlimentoMascotas.Models.EspecieInput)">
+            <summary>
+            Se recibe la información de una especie y se añade a la base de datos.
+            </summary>
+            <param name="especie"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.EspecieController.ActualizarEspecie(System.Int32,AlimentoMascotas.Models.EspecieInput)">
+            <summary>
+            Se recibe el identificador de una especie y la nueva información para actualizarlo.
+            </summary>
+            <param name="especieId"></param>
+            <param name="especie"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.EspecieController.EliminarEspecie(System.Int32)">
+            <summary>
+            Se recibe el identificador de una especie y esta se elimina de la base de datos.
+            </summary>
+            <param name="especieId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.EtapaController.ObtenerEtapas">
+            <summary>
+            Se obtiene una lista de todas las etapas existentes en la base de datos.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.EtapaController.ObtenerEtapa(System.Int32)">
+            <summary>
+            Se obtiene la información de una etapa ingresando su identificador.
+            </summary>
+            <param name="etapaId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.EtapaController.AgregarEtapa(AlimentoMascotas.Models.EtapaInput)">
+            <summary>
+            Se recibe la información de una etapa y se añade a la base de datos.
+            </summary>
+            <param name="etapa"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.EtapaController.ActualizarEtapa(System.Int32,AlimentoMascotas.Models.EtapaInput)">
+            <summary>
+            Se recibe el identificador de una etapa y la nueva información para actualizarlo.
+            </summary>
+            <param name="etapaId"></param>
+            <param name="etapa"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.EtapaController.EliminarEtapa(System.Int32)">
+            <summary>
+            Se recibe el identificador de una etapa y esta se elimina de la base de datos.
+            </summary>
+            <param name="etapaId"></param>
             <returns></returns>
         </member>
         <member name="M:AlimentoMascotas.Controllers.IngredienteController.ObtenerIngredientes">
@@ -155,7 +225,7 @@
         </member>
         <member name="M:AlimentoMascotas.Controllers.IngredienteController.ActualizarIngrediente(System.Int32,AlimentoMascotas.Models.IngredienteInput)">
             <summary>
-            Se recibe el identificador de un ingrediente y la nueva informacion para actualizarlo.
+            Se recibe el identificador de un ingrediente y la nueva información para actualizarlo.
             </summary>
             <param name="ingredienteId"></param>
             <param name="ingrediente"></param>
@@ -166,6 +236,41 @@
             Se recibe el identificador de un ingrediente y este se elimina de la base de datos.
             </summary>
             <param name="ingredienteId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.MarcaController.ObtenerMarcas">
+            <summary>
+            Se obtiene una lista de todas las marcas existentes en la base de datos.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.MarcaController.ObtenerMarca(System.Int32)">
+            <summary>
+            Se obtiene la información de una marca ingresando su identificador.
+            </summary>
+            <param name="marcaId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.MarcaController.AgregarMarca(AlimentoMascotas.Models.MarcaInput)">
+            <summary>
+            Se recibe la información de una marca y se añade a la base de datos.
+            </summary>
+            <param name="marca"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.MarcaController.ActualizarMarca(System.Int32,AlimentoMascotas.Models.MarcaInput)">
+            <summary>
+            Se recibe el identificador de una marca y la nueva información para actualizarlo.
+            </summary>
+            <param name="marcaId"></param>
+            <param name="marca"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.MarcaController.EliminarMarca(System.Int32)">
+            <summary>
+            Se recibe el identificador de una marca y esta se elimina de la base de datos.
+            </summary>
+            <param name="marcaId"></param>
             <returns></returns>
         </member>
         <member name="T:AlimentoMascotas.Properties.Resources">

@@ -156,7 +156,7 @@ namespace AlimentoMascotas.Controllers
         }
 
         /// <summary>
-        /// Se recibe el identificador de un ingrediente y la nueva informacion para actualizarlo.
+        /// Se recibe el identificador de un ingrediente y la nueva información para actualizarlo.
         /// </summary>
         /// <param name="ingredienteId"></param>
         /// <param name="ingrediente"></param>

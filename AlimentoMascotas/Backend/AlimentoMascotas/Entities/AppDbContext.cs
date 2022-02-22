@@ -10,8 +10,8 @@ namespace AlimentoMascotas.Entities
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public DbSet<EAlimento> Alimento { get; set; } // Crea una tabla en la base de datos con la estructura de la entidad establecida
-        public DbSet<Especie> Especie { get; set; }
-        public DbSet<Etapa> Etapa { get; set; }
+        public DbSet<EEspecie> Especie { get; set; }
+        public DbSet<EEtapa> Etapa { get; set; }
         public DbSet<EMarca> Marca { get; set; }
         public DbSet<EIngrediente> Ingrediente { get; set; }
         public DbSet<EAditivo> Aditivo { get; set; }
@@ -57,16 +57,16 @@ namespace AlimentoMascotas.Entities
                 new EMarca { Id = 1, Name = "Raza" }
             };
 
-            List<Especie> especies = new()
+            List<EEspecie> especies = new()
             {
-                new Especie { Id = 1, Name = "Gato" },
-                new Especie { Id = 2, Name = "Perro" }
+                new EEspecie { Id = 1, Name = "Gato" },
+                new EEspecie { Id = 2, Name = "Perro" }
             };
 
-            List<Etapa> etapas = new()
+            List<EEtapa> etapas = new()
             {
-                new Etapa { Id = 1, Name = "Adulto" },
-                new Etapa { Id = 2, Name = "Cachorro" },
+                new EEtapa { Id = 1, Name = "Adulto" },
+                new EEtapa { Id = 2, Name = "Cachorro" },
             };
 
             List<EAlimento> alimentos = new()
@@ -138,8 +138,8 @@ namespace AlimentoMascotas.Entities
             };
 
             modelBuilder.Entity<EMarca>().HasData(marcas);
-            modelBuilder.Entity<Especie>().HasData(especies);
-            modelBuilder.Entity<Etapa>().HasData(etapas);
+            modelBuilder.Entity<EEspecie>().HasData(especies);
+            modelBuilder.Entity<EEtapa>().HasData(etapas);
             modelBuilder.Entity<EAlimento>().HasData(alimentos);
             modelBuilder.Entity<EIngrediente>().HasData(ingredientes);
             modelBuilder.Entity<EAditivo>().HasData(aditivos);

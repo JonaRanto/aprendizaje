@@ -152,7 +152,7 @@ namespace AlimentoMascotas.Controllers
         }
 
         /// <summary>
-        /// Se recibe el identificador de un aditivo y la nueva informacion para actualizarlo.
+        /// Se recibe el identificador de un aditivo y la nueva información para actualizarlo.
         /// </summary>
         /// <param name="aditivoId"></param>
         /// <param name="aditivo"></param>

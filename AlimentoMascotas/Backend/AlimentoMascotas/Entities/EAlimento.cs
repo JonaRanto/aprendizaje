@@ -20,8 +20,8 @@ namespace AlimentoMascotas.Entities
         [ForeignKey("MarcaId")]
         public EMarca Marca { get; set; }
         [ForeignKey("EspecieId")]
-        public Especie Especie { get; set; }
+        public EEspecie Especie { get; set; }
         [ForeignKey("EtapaId")]
-        public Etapa Etapa { get; set; }
+        public EEtapa Etapa { get; set; }
     }
 }

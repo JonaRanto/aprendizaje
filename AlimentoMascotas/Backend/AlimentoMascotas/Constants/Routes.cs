@@ -44,7 +44,7 @@
         public const string MAIN_ESPECIE = "especie";
         public const string ESPECIE_LISTAR = "listar";
         public const string ESPECIE_BUSCAR = "buscar/{especieId}";
-        public const string ESPECIE_NUEVO = "nuevo";
+        public const string ESPECIE_NUEVA = "nueva";
         public const string ESPECIE_ACTUALIZAR = "actualizar/{especieId}";
         public const string ESPECIE_ELIMINAR = "eliminar/{especieId}";
 
@@ -52,7 +52,7 @@
         public const string MAIN_ETAPA = "etapa";
         public const string ETAPA_LISTAR = "listar";
         public const string ETAPA_BUSCAR = "buscar/{etapaId}";
-        public const string ETAPA_NUEVO = "nuevo";
+        public const string ETAPA_NUEVA = "nueva";
         public const string ETAPA_ACTUALIZAR = "actualizar/{etapaId}";
         public const string ETAPA_ELIMINAR = "eliminar/{etapaId}";
 
@@ -60,7 +60,7 @@
         public const string MAIN_MARCA = "marca";
         public const string MARCA_LISTAR = "listar";
         public const string MARCA_BUSCAR = "buscar/{marcaId}";
-        public const string MARCA_NUEVO = "nuevo";
+        public const string MARCA_NUEVA = "nueva";
         public const string MARCA_ACTUALIZAR = "actualizar/{marcaId}";
         public const string MARCA_ELIMINAR = "eliminar/{marcaId}";
     }

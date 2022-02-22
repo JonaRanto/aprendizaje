@@ -224,8 +224,8 @@ namespace AlimentoMascotas.Controllers
             try
             {
                 EMarca marca = _context.Marca.FirstOrDefault(mar => mar.Id == alimento.MarcaId);
-                Especie especie = _context.Especie.FirstOrDefault(esp => esp.Id == alimento.EspecieId);
-                Etapa etapa = _context.Etapa.FirstOrDefault(eta => eta.Id == alimento.EtapaId);
+                Entities.EEspecie especie = _context.Especie.FirstOrDefault(esp => esp.Id == alimento.EspecieId);
+                EEtapa etapa = _context.Etapa.FirstOrDefault(eta => eta.Id == alimento.EtapaId);
 
                 if (marca == null)
                 {
@@ -291,7 +291,7 @@ namespace AlimentoMascotas.Controllers
         }
 
         /// <summary>
-        /// Se recibe el identificador de un alimento y la nueva informacion para actualizarlo.
+        /// Se recibe el identificador de un alimento y la nueva información para actualizarlo.
         /// </summary>
         /// <param name="alimentoId"></param>
         /// <param name="alimento"></param>
@@ -303,8 +303,8 @@ namespace AlimentoMascotas.Controllers
             try
             {
                 EMarca marca = _context.Marca.FirstOrDefault(mar => mar.Id == alimento.MarcaId);
-                Especie especie = _context.Especie.FirstOrDefault(esp => esp.Id == alimento.EspecieId);
-                Etapa etapa = _context.Etapa.FirstOrDefault(eta => eta.Id == alimento.EtapaId);
+                Entities.EEspecie especie = _context.Especie.FirstOrDefault(esp => esp.Id == alimento.EspecieId);
+                EEtapa etapa = _context.Etapa.FirstOrDefault(eta => eta.Id == alimento.EtapaId);
 
                 if (marca == null)
                 {
