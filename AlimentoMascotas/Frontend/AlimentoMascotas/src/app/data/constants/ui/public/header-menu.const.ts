@@ -2,12 +2,12 @@ import { IHeaderMenu } from "@data/interfaces";
 
 export const HEADER_MENUS: IHeaderMenu[] = [
     {
-        name: 'Contacto',
+        name: 'CONTACTO',
         link: '',
         target: '',
     },
     {
-        name: 'Legal',
+        name: 'LEGAL',
         link: '',
         target: '',
     },

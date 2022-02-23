@@ -5,11 +5,11 @@ import { PublicSkeletonComponent } from './layouts';
 
 const routes: Routes = [
   { 
-    path: '',
+    path: INTERNAL_PATHS.PUBLIC_DEFAULT,
     component: PublicSkeletonComponent,
     children: [
       { 
-        path: '',
+        path: INTERNAL_PATHS.PUBLIC_DEFAULT,
         loadChildren: () =>
         import('@modules/public/public.module').then((m) => m.PublicModule)
       }

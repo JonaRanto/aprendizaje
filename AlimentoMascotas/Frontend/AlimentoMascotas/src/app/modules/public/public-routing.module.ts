@@ -1,10 +1,11 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { INTERNAL_PATHS } from "@data/constants";
 import { MainComponent } from "./main/main.component";
 
 const routes: Routes = [
     { 
-        path: '',
+        path: INTERNAL_PATHS.PUBLIC_DEFAULT,
         component: MainComponent,
     },
     { 

@@ -1,20 +1,20 @@
 <div class="header">
-    <div class="header-content">
+    <div class="header_content">
         <div class="logo">
             <a href="{{logo.link}}">
-                <img src="{{logo.img}}">
+                    <img src="{{logo.img}}" class="logo_img">
             </a>
-        </div>
-        <div class="searcher">
-            <div class="search_box">
-                <input type="text" class="input" placeholder="Buscar...">
-                <div class="btn btn_common">
-                    <i class="fa fa-search"></i>
+        </div>            
+            <div class="menus">
+                <div class="searcher">
+                    <div class="search_box">
+                        <input type="text" class="input" placeholder="Buscar...">
+                        <div class="btn btn_common">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="menu">
-            <p>Menu</p>
+            <a href="{{menu.link}}" class="menu_btn" target="{{menu.target}}" *ngFor="let menu of menus">{{menu.name}}</a>
         </div>
     </div>
 </div>
