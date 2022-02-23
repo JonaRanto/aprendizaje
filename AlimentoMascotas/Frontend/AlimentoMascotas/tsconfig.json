@@ -29,7 +29,7 @@
       "@env/*": ["environment/*"],
       "@modules/*": ["app/modules/*"],
       "@data/*": ["app/data/*"],
-      "@layout/*": ["app/layout/*"]
+      "@layouts/*": ["app/layouts/*"],
     }
   },
   "angularCompilerOptions": {
