@@ -1,0 +1,21 @@
+.body {
+    background-color: var(--quaternary-color);
+    background-image: url(../../../../assets/imgs/background.png);
+    width: 100vw;
+    min-height: calc(100vh - 125px - 150px);
+    padding: 20px 0px;
+    display: flex;
+    justify-content: center;
+    &_content {
+        width: 750px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        app-filter-bar {
+            width: calc(20% - 10px);  
+        }
+        app-products {
+            width: calc(80% - 10px);
+        }
+    }
+}

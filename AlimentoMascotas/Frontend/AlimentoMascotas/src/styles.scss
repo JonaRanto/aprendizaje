@@ -1,12 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Monserrat', sans-serif;
-}
-
 // IMPORT FONT-AWESOME
 @import '~font-awesome/scss/font-awesome';
 
 // IMPORT BOOTSTRAP
 @import '~bootstrap/scss/bootstrap';
+
+// DEFAULT PROPERTIES
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Monserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+// VARIABLES
+:root {
+    --primary-color: rgb(78, 159, 61);
+    --secondary-color: rgb(105, 213, 87);
+    --tertiary-color: rgb(25, 26, 25);
+    --quaternary-color: rgb(216, 233, 168);
+    --quinary-color: rgb(255, 255, 255);
+    --senary-color: rgb(201, 218, 153);
+    --septenary-color: red;
+    --octonary-color: red;
+    --nonary-color: red;
+    --denary-color: red;
+}

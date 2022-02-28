@@ -1,5 +1,5 @@
 export const IMAGES_ROUTES = {
     HEADER: {
-        MAIN_LOGO: './assets/imgs/logo.png'
+        MAIN_LOGO: './assets/imgs/logo.png',
     }
 }

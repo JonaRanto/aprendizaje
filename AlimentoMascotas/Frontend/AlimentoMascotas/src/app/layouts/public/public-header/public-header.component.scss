@@ -1,9 +1,9 @@
 .header {
     width: 100vw;
     height: 125px;
-    background-color: rgb(30, 100, 40);
+    background-color: var(--primary-color);
     &_content {
-        width: 70%;
+        width: 60%;
         min-width: 800px;
         height: 100%;
         margin: auto;
@@ -21,12 +21,13 @@
         .menus {
             display: flex;
             .searcher {
-                padding-right: 50px;
+                padding-right: 30px;
                 .search_box {
                     position: relative;
                     width: 300px;
                     height: 45px;
                     .input {
+                        background-color: var(--quinary-color);
                         border: 0;
                         outline: none;
                         position: absolute;
@@ -41,24 +42,25 @@
                     .btn {
                         position: absolute;
                         top: 2.5%;
-                        right: 0.5%;
+                        right: 0.25%;
                         width: calc(45px * 0.95);
                         height: 95%;
-                        background-color: rgb(92, 92, 92);
+                        background-color: var(--tertiary-color);
                         z-index: 1;
                         cursor: pointer;
                         border-top-right-radius: 10px;
                         border-bottom-right-radius: 10px;
                         border-radius: 50%;
+                        transition: all 0.2s;
                         &:hover {
-                            background-color: rgb(60, 180, 50);
+                            background-color: var(--secondary-color);
                         }
                         .fa {
                             position: absolute;
                             top: 50%;
                             left: 50%;
                             transform: translate(-50%, -50%);
-                            color: #fff;
+                            color: var(--quinary-color);
                             font-size: 20px;
                         }
                     }
@@ -67,12 +69,13 @@
             .menu_btn {
                 margin: 0 5px;
                 padding: 10px;
-                color: white;
+                color: var(--quinary-color);
                 font-size: 16px;
                 text-decoration: none;
+                transition: all 0.2s;
                 &:hover {
-                    background-color: white;
-                    color: rgb(30, 100, 40);
+                    background-color: var(--quinary-color);
+                    color: var(--primary-color);
                 }
             }
         }

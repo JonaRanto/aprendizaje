@@ -1,0 +1,16 @@
+<div class="filter_bar">
+    <h5>{{filter_bar.title}}</h5>
+    <div class="menu" *ngFor="let menu of filter_bar.menus">
+            <span class="menu_btn" (click)="toogleSubMenu(menu.name)">
+                {{menu.name}}
+                <i class="fa" [ngClass]="menu.status ? 'fa-chevron-down' : 'fa-chevron-up'"></i>
+            </span>
+        <ul class="sub_menu_list" [ngClass]="menu.status ? 'enabled' : 'disabled'">
+            <ng-container *ngFor="let subMenu of menu.subMenus">
+            <a href="">
+                <li>{{subMenu.name}}</li>
+            </a>
+            </ng-container>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+.filter_bar {
+    background-color: var(--senary-color);
+    padding: 15px;
+    display: block;
+    user-select: none;
+    border: 1px solid var(--primary-color);
+    h5 {
+        margin: 0px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+    .menu_btn {
+        cursor: pointer;
+        .fa {
+            font-size: 12px;
+        }
+    }
+    .sub_menu_list {
+        &.enabled {
+            display: block;
+            margin: 0px;
+            a {
+                text-decoration: none;
+                color: black;
+                li {
+                    overflow: visible;
+                }
+            }
+        }
+        &.disabled {
+            display: none;
+        }
+    }
+}

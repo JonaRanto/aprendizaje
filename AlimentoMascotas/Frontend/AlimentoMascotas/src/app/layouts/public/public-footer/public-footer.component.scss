@@ -1,0 +1,29 @@
+.footer {
+    width: 100vw;
+    height: 150px;
+    background-color: var(--tertiary-color);
+    color: var(--quinary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    .footer_content {
+        width: 60%;
+        min-width: 800px;
+        display: flex;
+        justify-content: space-around;
+        .list {
+            li {
+                overflow: visible;
+            }
+            &_item p {
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+        }
+    }
+    .author {
+        font-size: 12px;
+        margin: 0;
+    }
+}

@@ -4,13 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PrivateSkeletonComponent, PublicHeaderComponent, PublicSkeletonComponent } from './layouts';
+import { PublicFooterComponent } from './layouts/public/public-footer/public-footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PublicSkeletonComponent,
     PrivateSkeletonComponent,
-    PublicHeaderComponent
+    PublicHeaderComponent,
+    PublicFooterComponent
   ],
   imports: [
     BrowserModule,
