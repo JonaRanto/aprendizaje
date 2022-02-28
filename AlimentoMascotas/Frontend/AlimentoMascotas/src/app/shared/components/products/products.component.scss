@@ -1,12 +1,11 @@
 .products {
-    background-color: var(--senary-color);
-    padding: 15px;
-    display: block;
-    border: 1px solid var(--primary-color);
     .product_card {
+        background-color: var(--senary-color);
+        padding: 15px;
+        border: 1px solid var(--primary-color);
         display: flex;
         justify-content: space-between;
-        background-color: var(--senary-color);
+        margin-bottom: 15px;
         .left_section {
             display: flex;
             flex-direction: column;

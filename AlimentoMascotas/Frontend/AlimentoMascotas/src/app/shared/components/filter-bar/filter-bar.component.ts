@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IFilterBarMenu } from '@data/interfaces';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-filter-bar',
