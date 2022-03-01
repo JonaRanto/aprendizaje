@@ -15,16 +15,26 @@ namespace AlimentoMascotas
 {
     public class Startup
     {
+        public IConfiguration _configuration { get; }
+        readonly string MyAllowSpecificOrigins = "_myaAllowSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
-        public IConfiguration _configuration { get; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                    builder =>
+                    {
+                        builder.WithOrigins(_configuration.GetValue<string>("FRONT")).AllowAnyHeader().AllowAnyMethod();
+                    });
+            });
+
             services.AddControllersWithViews()
                 .AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
@@ -55,6 +65,8 @@ namespace AlimentoMascotas
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseAuthorization();
 

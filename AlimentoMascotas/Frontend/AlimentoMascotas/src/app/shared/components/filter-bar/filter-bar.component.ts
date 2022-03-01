@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IFilterBarMenu } from '@data/interfaces';
-import { environment } from 'environments/environment';
+import { IApiResponse, IFilterBarMenu } from '@data/interfaces';
+import { EspecieService } from '@data/services/api/especie.service';
 
 @Component({
   selector: 'app-filter-bar',
@@ -8,6 +8,10 @@ import { environment } from 'environments/environment';
   styleUrls: ['./filter-bar.component.scss']
 })
 export class FilterBarComponent implements OnInit {
+
+  especies: any;
+  etapas: any;
+  marcas: any;
 
   filter_bar: IFilterBarMenu = {
     title: 'Filtros',
@@ -61,9 +65,15 @@ export class FilterBarComponent implements OnInit {
     ]
   }
 
-  constructor() { }
+  constructor(
+    private especieService: EspecieService,
+  ) { }
 
   ngOnInit(): void {
+    this.especieService.getEspecies()
+    .subscribe((r: IApiResponse) => {
+      this.especies = r.data;
+    });
   }
 
   toogleSubMenu(marca: string): void {

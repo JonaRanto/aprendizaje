@@ -1,6 +1,7 @@
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { SharedModule } from '@shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PrivateSkeletonComponent, PublicHeaderComponent, PublicSkeletonComponent } from './layouts';
@@ -16,7 +17,8 @@ import { PublicFooterComponent } from './layouts/public/public-footer/public-foo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule,
   ],
   providers: [
     {
