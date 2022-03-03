@@ -1,25 +1,24 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { API_ROUTES, ERROR_CONST } from '@data/constants';
 import { IApiResponse } from '@data/interfaces';
 import { catchError, map, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EspecieService {
+export class ApiService {
 
   constructor(
     private http: HttpClient,
   ) { }
-  
-  getEspecies(): Observable<IApiResponse> {
+
+  getList(endPoint: string, defaultError: string): Observable<IApiResponse> {
     const response = {
       error: true,
-      message: ERROR_CONST.ESPECIE.DEFAULT_ERROR,
+      message: defaultError,
       data: null,
-    };
-    return this.http.get<IApiResponse>(`${API_ROUTES.ESPECIE}/listar`)
+    }
+    return this.http.get<IApiResponse>(endPoint)
     .pipe(
       map((r: IApiResponse) => {
         response.error = r.error;
@@ -30,6 +29,6 @@ export class EspecieService {
       catchError(_ => {
         return of(response);
       })
-    );
+    )
   }
 }

@@ -6,7 +6,43 @@
     padding: 20px 0px;
     padding-bottom: calc(20px - 15px);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    .filters {
+        width: 850px;
+        margin-bottom: 5px;
+        display: flex;
+        justify-content: flex-end;
+        .filter {
+            background-color: var(--quinary-color);
+            border-radius: 50px;
+            border: 1px solid var(--tertiary-color);
+            overflow: hidden;
+            min-width: 60px;
+            display: flex;
+            justify-content: center;
+            user-select: none;
+            margin: 0px 5px;
+            &_text {
+                font-size: 12px;
+                margin: 3px;
+                margin-left: 10px;
+                text-transform: capitalize;
+                p {
+                    text-align: center;
+                    margin: 0px;
+                }
+            }
+            &_close {
+                font-size: 12px;
+                font-weight: 0;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                margin-right: 10px;
+            }
+        }
+    }
     &_content {
         width: 850px;
         display: flex;

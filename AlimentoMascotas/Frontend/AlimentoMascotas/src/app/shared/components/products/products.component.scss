@@ -2,7 +2,7 @@
     .product_card {
         background-color: var(--senary-color);
         padding: 15px;
-        border: 1px solid var(--primary-color);
+        border: 1px solid var(--tertiary-color);
         display: flex;
         justify-content: space-between;
         margin-bottom: 15px;
@@ -16,7 +16,7 @@
                 justify-content: center;
                 height: 200px;
                 background-color: var(--quinary-color);
-                border: 1px solid var(--primary-color);
+                border: 1px solid var(--tertiary-color);
                 img {
                     max-width: 200px;
                 }

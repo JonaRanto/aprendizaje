@@ -3,7 +3,7 @@
     padding: 15px;
     display: block;
     user-select: none;
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--tertiary-color);
     h5 {
         margin: 0px;
         margin-bottom: 10px;
@@ -20,6 +20,7 @@
             display: block;
             margin: 0px;
             a {
+                cursor: pointer;
                 text-decoration: none;
                 color: black;
                 li {

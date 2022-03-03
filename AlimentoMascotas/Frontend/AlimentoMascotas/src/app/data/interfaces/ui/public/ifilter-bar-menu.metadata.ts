@@ -4,8 +4,8 @@ export interface IFilterBarMenu {
         name: string,
         status: boolean,
         subMenus: {
+            id: number,
             name: string,
-            link: string,
         }[],
     }[],
 }

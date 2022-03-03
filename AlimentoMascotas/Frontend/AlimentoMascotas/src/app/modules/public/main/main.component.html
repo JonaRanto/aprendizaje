@@ -1,4 +1,14 @@
 <div class="body">
+    <div class="filters" *ngIf="filters.length != 0" >
+        <div class="filter" *ngFor="let filter of filters">
+            <div class="filter_text">
+                <p>{{filter}}</p>
+            </div>
+            <div class="filter_close">
+                <i class="fa fa-close" (click)="deleteFilter(filter)"></i>
+            </div>
+        </div>
+    </div>
     <div class="body_content">
         <app-filter-bar></app-filter-bar>
         <app-products></app-products>

@@ -7,7 +7,7 @@
             </span>
         <ul class="sub_menu_list" [ngClass]="menu.status ? 'enabled' : 'disabled'">
             <ng-container *ngFor="let subMenu of menu.subMenus">
-            <a href="">
+            <a (click)="addFilter(menu.name + ': ' + subMenu.name)">
                 <li>{{subMenu.name}}</li>
             </a>
             </ng-container>
