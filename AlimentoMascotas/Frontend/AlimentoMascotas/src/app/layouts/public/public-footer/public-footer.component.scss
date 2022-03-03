@@ -16,9 +16,15 @@
             li {
                 overflow: visible;
             }
-            &_item p {
-                margin-top: 0px;
-                margin-bottom: 0px;
+            &_item {
+                p {
+                    i {
+                        margin-right: 5px;
+                        margin-bottom: 3px;
+                        vertical-align: middle;
+                    }
+                    margin: 0px;
+                }
             }
         }
     }

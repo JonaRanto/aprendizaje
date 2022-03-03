@@ -23,7 +23,7 @@ export class FilterBarComponent implements OnInit {
   addFilter(filter: string): void {
     // Si el filtro de sessionStorage no tiene nada o no existe entonces toma el valor del filtro entregado
     if (sessionStorage.getItem('filters') == null || sessionStorage.getItem('filters') == "") {
-      sessionStorage.setItem('filters', filter);
+      sessionStorage.setItem('filters', filter.toLowerCase());
       window.location.reload();
     }
     else {
