@@ -1,37 +1,31 @@
 <div class="products">
-    <div class="product_card">
+    <div class="product_card" *ngFor="let product of products">
         <div class="left_section">
             <div class="product_img">
-                <img src="/assets/imgs/alimentos/1.png">
+                <img src="/assets/imgs/alimentos/{{product.id}}.png">
             </div>
         </div>
         <div class="right_section">
             <div class="description">
-                <img src="/assets/imgs/marcas/1.png">
-                <h5>Comida de gato</h5>
+                <img src="/assets/imgs/marcas/{{product.marca.toLowerCase()}}.png">
+                <h5>{{product.name}}</h5>
             </div>
             <hr>
             <div class="content">
                 <div class="ingredientes">
                     <h5>Ingredientes</h5>
                     <ul>
-                        <li>Ingrediente 1</li>
-                        <li>Ingrediente 2</li>
-                        <li>Ingrediente 3</li>
-                        <li>Ingrediente 4</li>
-                        <li>
+                        <li *ngFor="let ingrediente of product.ingredientes | slice:0:4">{{ingrediente.name}} {{ingrediente.quantityPer}}%</li>
+                        <li *ngIf="product.ingredientes.length > 4">
                             <a href="">Ver más</a>
                         </li>
                     </ul>
                 </div>
                 <div class="analiticos">
-                    <h5>Analiticos</h5>
+                    <h5>Analíticos</h5>
                     <ul>
-                        <li>Analítico 1</li>
-                        <li>Analítico 2</li>
-                        <li>Analítico 3</li>
-                        <li>Analítico 4</li>
-                        <li>
+                        <li *ngFor="let analitico of product.analiticos | slice:0:4">{{analitico.name}} {{analitico.quantityPer}}%</li>
+                        <li *ngIf="product.analiticos.length > 4">
                             <a href="">Ver más</a>
                         </li>
                     </ul>

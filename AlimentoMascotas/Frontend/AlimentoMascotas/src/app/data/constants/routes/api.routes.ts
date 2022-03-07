@@ -3,6 +3,9 @@ import { environment } from 'environments/environment';
 export const API_ROUTES_PATHS = {
     API: {
         DEFAULT: 'api',
+        ALIMENTO: {
+            DEFAULT: 'alimento',
+        },
         ESPECIE: {
             DEFAULT: 'especie',
         },
@@ -16,6 +19,7 @@ export const API_ROUTES_PATHS = {
 }
 
 export const API_INTERNAL_PATHS = {
+    ALIMENTO: `${API_ROUTES_PATHS.API.DEFAULT}/${API_ROUTES_PATHS.API.ALIMENTO.DEFAULT}`,
     ESPECIE: `${API_ROUTES_PATHS.API.DEFAULT}/${API_ROUTES_PATHS.API.ESPECIE.DEFAULT}`,
     ETAPA: `${API_ROUTES_PATHS.API.DEFAULT}/${API_ROUTES_PATHS.API.ETAPA.DEFAULT}`,
     MARCA: `${API_ROUTES_PATHS.API.DEFAULT}/${API_ROUTES_PATHS.API.MARCA.DEFAULT}`,
@@ -26,6 +30,9 @@ export const API_ROUTES_ACTION = {
 }
 
 export const API_INTERNAL_ROUTES = {
+    ALIMENTO: {
+        LISTAR: `${environment.backend}/${API_INTERNAL_PATHS.ALIMENTO}/${API_ROUTES_ACTION.LISTAR}`,
+    },
     ESPECIE: {
         LISTAR: `${environment.backend}/${API_INTERNAL_PATHS.ESPECIE}/${API_ROUTES_ACTION.LISTAR}`,
     },

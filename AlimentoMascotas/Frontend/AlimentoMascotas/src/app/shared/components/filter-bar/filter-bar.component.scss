@@ -1,9 +1,11 @@
 .filter_bar {
     background-color: var(--senary-color);
-    padding: 15px;
+    padding: 20px 30px;
     display: block;
     user-select: none;
     border: 1px solid var(--tertiary-color);
+    border-radius: 20px;
+    box-shadow: 3px 3px 5px var(--tertiary-color);
     h5 {
         margin: 0px;
         margin-bottom: 10px;
@@ -23,9 +25,6 @@
                 cursor: pointer;
                 text-decoration: none;
                 color: black;
-                li {
-                    overflow: visible;
-                }
             }
         }
         &.disabled {

@@ -3,6 +3,8 @@
         background-color: var(--senary-color);
         padding: 15px;
         border: 1px solid var(--tertiary-color);
+        border-radius: 20px;
+        box-shadow: 3px 3px 5px var(--tertiary-color);
         display: flex;
         justify-content: space-between;
         margin-bottom: 15px;
@@ -14,10 +16,13 @@
             .product_img {
                 display: flex;
                 justify-content: center;
+                align-items: center;
                 height: 200px;
+                border-radius: 20px;
                 background-color: var(--quinary-color);
-                border: 1px solid var(--tertiary-color);
+                outline: 1px solid var(--tertiary-color);
                 img {
+                    border-radius: 20px;
                     max-width: 200px;
                     max-height: 200px;
                 }
@@ -27,9 +32,15 @@
             width: calc(100% - 200px - 20px);
             .description {
                 display: flex;
+                align-items: center;
+                margin-bottom: 5px;
                 img {
-                    height: 25px;
+                    max-width: 25px;
+                    height: 100%;
                     margin-right: 15px;
+                }
+                h5 {
+                    margin: 0px;
                 }
             }
             .content {
@@ -37,15 +48,12 @@
                 justify-content: space-around;
                 & * ul {
                     margin: 0px;
-                    li {
-                        overflow: visible;
-                    }
                 }
                 .ingredientes {
-                    width: 140px;
+                    width: 160px;
                 }
                 .analiticos {
-                    width: 140px;
+                    width: 160px;
                 }
             }
             hr {

@@ -11,6 +11,10 @@
     font-family: 'Calibri', 'Candara', 'Segoe', 'Segoe UI', 'Optima', 'Arial', 'sans-serif';
 }
 
+body {
+    overflow-x: hidden;
+}
+
 // VARIABLES
 :root {
     --primary-color: rgb(78, 159, 61);

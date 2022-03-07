@@ -27,6 +27,7 @@ export class ApiService {
         return response;
       }),
       catchError(_ => {
+        console.log(_.status);
         return of(response);
       })
     )

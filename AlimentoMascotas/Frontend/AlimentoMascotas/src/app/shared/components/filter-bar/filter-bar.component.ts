@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { API_INTERNAL_ROUTES, ERROR_CONST, FILTER_BAR } from '@data/constants';
-import { IApiEspecie, IApiResponse } from '@data/interfaces';
+import { IApiEspecie, IApiEtapa, IApiMarca, IApiResponse } from '@data/interfaces';
 import { ApiService } from '@data/services';
 
 @Component({
@@ -61,27 +61,39 @@ export class FilterBarComponent implements OnInit {
 
   fillFilterBar(): void {
     this.apiService.getList(API_INTERNAL_ROUTES.ESPECIE.LISTAR, ERROR_CONST.ESPECIE.DEFAULT_ERROR)
-      .subscribe((r: IApiResponse) => {
+    .subscribe((r: IApiResponse) => {
+      if (!r.error) {
         var especies: IApiEspecie[] = r.data;
-        especies.forEach((e: IApiEspecie) => {
-          this.filter_bar.menus.filter(e => e.name == "Especie")[0].subMenus.push(e);
+        especies.forEach((especie: IApiEspecie) => {
+          this.filter_bar.menus.filter(e => e.name == "Especie")[0].subMenus.push(especie);
         })
-      })
+      } else {
+        console.log(r.message);
+      }
+    })
 
     this.apiService.getList(API_INTERNAL_ROUTES.ETAPA.LISTAR, ERROR_CONST.ETAPA.DEFAULT_ERROR)
     .subscribe((r: IApiResponse) => {
-      var especies: IApiEspecie[] = r.data;
-      especies.forEach((e: IApiEspecie) => {
-        this.filter_bar.menus.filter(e => e.name == "Etapa")[0].subMenus.push(e);
-      })
+      if (!r.error){
+        var etapas: IApiEtapa[] = r.data;
+        etapas.forEach((etapa: IApiEtapa) => {
+          this.filter_bar.menus.filter(e => e.name == "Etapa")[0].subMenus.push(etapa);
+        })
+      } else {
+        console.log(r.message);
+      }
     })
 
     this.apiService.getList(API_INTERNAL_ROUTES.MARCA.LISTAR, ERROR_CONST.MARCA.DEFAULT_ERROR)
     .subscribe((r: IApiResponse) => {
-      var especies: IApiEspecie[] = r.data;
-      especies.forEach((e: IApiEspecie) => {
-        this.filter_bar.menus.filter(e => e.name == "Marca")[0].subMenus.push(e);
+      if (!r.error) {
+      var marcas: IApiMarca[] = r.data;
+      marcas.forEach((marca: IApiMarca) => {
+        this.filter_bar.menus.filter(e => e.name == "Marca")[0].subMenus.push(marca);
       })
+      } else {
+        console.log(r.message);
+      }
     })
   }
 
