@@ -28,8 +28,9 @@ namespace AlimentoMascotas.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet(RoutesPaths.ALIMENTO_LISTAR)]
-        public ActionResult<ApiResponse> ObtenerAlimentos()
+        public ActionResult<ApiResponse> ObtenerAlimentos([FromQuery] AlimentoPaths alimentoPaths)
         {
+            Console.WriteLine(alimentoPaths);
             ApiResponse apiResponse = new();
             try
             {
@@ -54,7 +55,9 @@ namespace AlimentoMascotas.Controllers
                         Especie = ali_mar_esp.esp.Name,
                         Etapa = eta.Name,
                         LastUpdate = ali_mar_esp.ali_mar.ali.LastUpdate
-                    }).ToList();
+                    })
+                    .Where(x => x.Marca.Contains(alimentoPaths.Marca) && x.Especie.Contains(alimentoPaths.Especie) && x.Etapa.Contains(alimentoPaths.Etapa))
+                    .ToList();
 
                 foreach (AlimentoOutput alimento in alimentos)
                 {

@@ -39,7 +39,7 @@
             <param name="aditivoId"></param>
             <returns></returns>
         </member>
-        <member name="M:AlimentoMascotas.Controllers.AlimentoController.ObtenerAlimentos">
+        <member name="M:AlimentoMascotas.Controllers.AlimentoController.ObtenerAlimentos(AlimentoMascotas.Models.AlimentoPaths)">
             <summary>
             Se obtiene una lista de todos los alimentos existentes en la base de datos.
             </summary>

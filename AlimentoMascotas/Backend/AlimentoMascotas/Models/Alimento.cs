@@ -25,4 +25,18 @@ namespace AlimentoMascotas.Models
         public List<AnaliticoEnAlimentoOutput> Analiticos { get; set; }
         public DateTime LastUpdate { get; set; }
     }
+
+    public class AlimentoPaths
+    {
+        public string Especie { get; set; }
+        public string Etapa { get; set; }
+        public string Marca { get; set; }
+
+        public AlimentoPaths()
+        {
+            Especie = String.Empty;
+            Etapa = String.Empty;
+            Marca = String.Empty;
+        }
+    }
 }

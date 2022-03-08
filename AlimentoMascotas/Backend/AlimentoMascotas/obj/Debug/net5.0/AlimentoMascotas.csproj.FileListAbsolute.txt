@@ -147,3 +147,4 @@ C:\Users\Jonathan\git\aprendizaje\AlimentoMascotas\Backend\AlimentoMascotas\obj\
 C:\Users\Jonathan\git\aprendizaje\AlimentoMascotas\Backend\AlimentoMascotas\obj\Debug\net5.0\AlimentoMascotas.xml
 C:\Users\Jonathan\git\aprendizaje\AlimentoMascotas\Backend\AlimentoMascotas\obj\Debug\net5.0\AlimentoMascotas.pdb
 C:\Users\Jonathan\git\aprendizaje\AlimentoMascotas\Backend\AlimentoMascotas\obj\Debug\net5.0\AlimentoMascotas.genruntimeconfig.cache
+C:\Users\Jona\git\aprendizaje\AlimentoMascotas\Backend\AlimentoMascotas\bin\Debug\net5.0\AlimentoMascotas.StaticWebAssets.xml
