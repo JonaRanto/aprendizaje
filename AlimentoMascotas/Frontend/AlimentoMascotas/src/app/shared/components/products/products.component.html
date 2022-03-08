@@ -2,12 +2,12 @@
     <div class="product_card" *ngFor="let product of products">
         <div class="left_section">
             <div class="product_img">
-                <img src="/assets/imgs/alimentos/{{product.id}}.png">
+                <img src="{{imageRouteGenerator(product.id, 'alimentos')}}">
             </div>
         </div>
         <div class="right_section">
             <div class="description">
-                <img src="/assets/imgs/marcas/{{product.marca.toLowerCase()}}.png">
+                <img src="{{imageRouteGenerator(product.marca, 'marcas')}}">
                 <h5>{{product.name}}</h5>
             </div>
             <hr>

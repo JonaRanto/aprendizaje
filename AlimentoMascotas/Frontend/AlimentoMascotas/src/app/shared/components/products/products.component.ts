@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { API_INTERNAL_ROUTES, ERROR_CONST } from '@data/constants';
+import { API_INTERNAL_ROUTES, ERROR_CONST, IMAGES_ROUTES } from '@data/constants';
 import { IApiAlimento, IApiResponse } from '@data/interfaces';
-import { ApiService } from '@data/services';
+import { AlimentoService } from '@data/services';
 
 @Component({
   selector: 'app-products',
@@ -13,22 +13,27 @@ export class ProductsComponent implements OnInit {
   products: IApiAlimento[] = [];
 
   constructor(
-    private apiService: ApiService,
+    private alimentoService: AlimentoService,
   ) { }
 
   ngOnInit(): void {
-    this.apiService.getList(API_INTERNAL_ROUTES.ALIMENTO.LISTAR, ERROR_CONST.ALIMENTO.DEFAULT_ERROR)
+    this.alimentoService.getAlimentos(API_INTERNAL_ROUTES.ALIMENTO.LISTAR, ERROR_CONST.ALIMENTO.DEFAULT_ERROR)
       .subscribe((r: IApiResponse) => {
         if (!r.error) {
           var alimentos: IApiAlimento[] = r.data;
           alimentos.forEach((alimento: IApiAlimento) => {
-            if (alimento.especie === "Gato"){
-              this.products.push(alimento);
-            }
+            this.products.push(alimento);
           })
         } else {
           console.log(r.message);
         }
       })
+  }
+
+  imageRouteGenerator(key: string, path: string): string {
+    var img = IMAGES_ROUTES.CONTENT.LINK + path + '/';
+    var extension = IMAGES_ROUTES.CONTENT.EXTENSION;
+    var link = img + key.toString().toLowerCase() + extension;
+    return link;
   }
 }
