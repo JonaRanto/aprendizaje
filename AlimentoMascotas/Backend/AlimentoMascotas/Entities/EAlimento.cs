@@ -8,12 +8,11 @@ namespace AlimentoMascotas.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        [Column(TypeName = "decimal(5, 2)")]
-        public decimal Size { get; set; }
         public int MarcaId { get; set; }
         public int EspecieId { get; set; }
         public int EtapaId { get; set; }
         public DateTime LastUpdate { get; set; }
+        public List<ESizeEnAlimento> Sizes { get; set; }
         public List<EIngredienteEnAlimento> Ingredientes { get; set; }
         public List<EAditivoEnAlimento> Aditivos { get; set; }
         public List<EAnaliticoEnAlimento> Analiticos { get; set; }

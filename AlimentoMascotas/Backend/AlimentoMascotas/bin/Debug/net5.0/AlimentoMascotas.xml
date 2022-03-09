@@ -273,6 +273,41 @@
             <param name="marcaId"></param>
             <returns></returns>
         </member>
+        <member name="M:AlimentoMascotas.Controllers.SizeController.ObtenerSizes">
+            <summary>
+            Se obtiene una lista de todos los sizes existentes en la base de datos.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.SizeController.ObtenerSize(System.Int32)">
+            <summary>
+            Se obtiene la información de un size ingresando su identificador.
+            </summary>
+            <param name="sizeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.SizeController.AgregarSize(AlimentoMascotas.Models.SizeInput)">
+            <summary>
+            Se recibe la información de un size y se añade a la base de datos.
+            </summary>
+            <param name="size"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.SizeController.ActualizarSize(System.Int32,AlimentoMascotas.Models.SizeInput)">
+            <summary>
+            Se recibe el identificador de un size y la nueva información para actualizarlo.
+            </summary>
+            <param name="sizeId"></param>
+            <param name="size"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlimentoMascotas.Controllers.SizeController.EliminarSize(System.Int32)">
+            <summary>
+            Se recibe el identificador de un size y este se elimina de la base de datos.
+            </summary>
+            <param name="sizeId"></param>
+            <returns></returns>
+        </member>
         <member name="T:AlimentoMascotas.Properties.Resources">
             <summary>
               Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.

@@ -8,7 +8,7 @@ namespace AlimentoMascotas.Entities
         public int AlimentoId { get; set; }
         [Column(TypeName = "decimal(5, 2)")]
         public decimal QuantityPer { get; set; }
-        [Column(TypeName = "decimal(5, 2)")]
+        [Column(TypeName = "decimal(7, 2)")]
         public decimal QuantityGra { get; set; }
         [ForeignKey("AnaliticoId")]
         public EAnalitico Analitico { get; set; }

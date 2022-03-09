@@ -13,9 +13,11 @@ namespace AlimentoMascotas.Entities
         public DbSet<EEspecie> Especie { get; set; }
         public DbSet<EEtapa> Etapa { get; set; }
         public DbSet<EMarca> Marca { get; set; }
+        public DbSet<ESize> Size { get; set; }
         public DbSet<EIngrediente> Ingrediente { get; set; }
         public DbSet<EAditivo> Aditivo { get; set; }
         public DbSet<EAnalitico> Analitico { get; set; }
+        public DbSet<ESizeEnAlimento> SizeEnAlimento { get; set; }
         public DbSet<EIngredienteEnAlimento> IngredienteEnAlimento { get; set; }
         public DbSet<EAditivoEnAlimento> AditivoEnAlimento { get; set; }
         public DbSet<EAnaliticoEnAlimento> AnaliticoEnAlimento { get; set; }
@@ -39,6 +41,9 @@ namespace AlimentoMascotas.Entities
             modelBuilder.Entity<EAlimento>()
                 .HasIndex(e => e.EtapaId)
                 .IsUnique(false);
+
+            modelBuilder.Entity<ESizeEnAlimento>()
+                .HasKey(e => new { e.SizeId, e.AlimentoId });
             modelBuilder.Entity<EIngredienteEnAlimento>()
                 .HasKey(e => new { e.IngredienteId, e.AlimentoId });
             modelBuilder.Entity<EAditivoEnAlimento>()
@@ -67,6 +72,7 @@ namespace AlimentoMascotas.Entities
             {
                 new EEtapa { Id = 1, Name = "Adulto" },
                 new EEtapa { Id = 2, Name = "Cachorro" },
+                new EEtapa { Id = 3, Name = "Senior"},
             };
 
             List<EAlimento> alimentos = new()
@@ -74,13 +80,21 @@ namespace AlimentoMascotas.Entities
                 new EAlimento
                 {
                     Id = 1,
-                    Name = "Alimento Raza para gatos sabor Pescado",
-                    Size = 1,
+                    Name = "Alimento Raza para perros adultos sabor Pollo, Carne, Cereales y Arroz",
                     MarcaId = 1,
-                    EspecieId = 1,
+                    EspecieId = 2,
                     EtapaId = 1,
-                    LastUpdate = DateTime.UtcNow
+                    LastUpdate = DateTime.UtcNow,
                 }
+            };
+
+            List<ESize> sizes = new()
+            {
+                new ESize { Id = 1, Size = 1.5M },
+                new ESize { Id = 2, Size = 3M },
+                new ESize { Id = 3, Size = 8M },
+                new ESize { Id = 4, Size = 15M },
+                new ESize { Id = 5, Size = 21M },
             };
 
             List<EIngrediente> ingredientes = new()
@@ -134,16 +148,56 @@ namespace AlimentoMascotas.Entities
                 new EAnalitico { Id = 3, Name = "Ceniza" },
                 new EAnalitico { Id = 4, Name = "Fibras" },
                 new EAnalitico { Id = 5, Name = "Ácidos grasos omega" },
-                new EAnalitico { Id = 6, Name = "EPA/DHA" }
+                new EAnalitico { Id = 6, Name = "EPA/DHA" },
+                new EAnalitico { Id = 7, Name = "Humedad" },
+                new EAnalitico { Id = 8, Name = "Calcio" },
+                new EAnalitico { Id = 9, Name = "Fósforo" },
+                new EAnalitico { Id = 10, Name = "Energía" },
+            };
+
+            List<ESizeEnAlimento> sizesEnAlimentos = new()
+            {
+                new ESizeEnAlimento { AlimentoId = 1, SizeId = 1 },
+                new ESizeEnAlimento { AlimentoId = 1, SizeId = 2 },
+                new ESizeEnAlimento { AlimentoId = 1, SizeId = 3 },
+                new ESizeEnAlimento { AlimentoId = 1, SizeId = 4 },
+                new ESizeEnAlimento { AlimentoId = 1, SizeId = 5 },
+            };
+
+            List<EIngredienteEnAlimento> ingredientesEnAlimentos = new()
+            {
+                //new EIngredienteEnAlimento { AlimentoId = 1, IngredienteId = 1, QuantityPer = 1M },
+            };
+
+            List<EAditivoEnAlimento> aditivosEnAlimentos = new()
+            {
+                //new EAditivoEnAlimento { AlimentoId = 1, AditivoId = 1, QuantityPer = 1M },
+            };
+
+            List<EAnaliticoEnAlimento> analiticosEnAlimentos = new()
+            {
+                new EAnaliticoEnAlimento { AlimentoId = 1, AnaliticoId = 1, QuantityPer = 21M },
+                new EAnaliticoEnAlimento { AlimentoId = 1, AnaliticoId = 2, QuantityPer = 9M },
+                new EAnaliticoEnAlimento { AlimentoId = 1, AnaliticoId = 4, QuantityPer = 3.5M },
+                new EAnaliticoEnAlimento { AlimentoId = 1, AnaliticoId = 3, QuantityPer = 10M },
+                new EAnaliticoEnAlimento { AlimentoId = 1, AnaliticoId = 7, QuantityPer = 12M },
+                new EAnaliticoEnAlimento { AlimentoId = 1, AnaliticoId = 8, QuantityPer = 2M },
+                new EAnaliticoEnAlimento { AlimentoId = 1, AnaliticoId = 9, QuantityPer = 1.3M },
+                new EAnaliticoEnAlimento { AlimentoId = 1, AnaliticoId = 10, QuantityGra = 3200M },
             };
 
             modelBuilder.Entity<EMarca>().HasData(marcas);
             modelBuilder.Entity<EEspecie>().HasData(especies);
             modelBuilder.Entity<EEtapa>().HasData(etapas);
             modelBuilder.Entity<EAlimento>().HasData(alimentos);
+            modelBuilder.Entity<ESize>().HasData(sizes);
             modelBuilder.Entity<EIngrediente>().HasData(ingredientes);
             modelBuilder.Entity<EAditivo>().HasData(aditivos);
             modelBuilder.Entity<EAnalitico>().HasData(analiticos);
+            modelBuilder.Entity<ESizeEnAlimento>().HasData(sizesEnAlimentos);
+            modelBuilder.Entity<EIngredienteEnAlimento>().HasData(ingredientesEnAlimentos);
+            modelBuilder.Entity<EAditivoEnAlimento>().HasData(aditivosEnAlimentos);
+            modelBuilder.Entity<EAnaliticoEnAlimento>().HasData(analiticosEnAlimentos);
         }
     }
 }

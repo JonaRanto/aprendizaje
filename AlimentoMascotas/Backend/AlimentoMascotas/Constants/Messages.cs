@@ -10,6 +10,12 @@
         public const string ALIMENTO_NOT_FOUND = "El identificador del alimento ingresado no se ha encontrado.";
     }
 
+    public class SizeMessages
+    {
+        public const string SIZE_NOT_FOUND = "El identificador del size ingresado no se ha encontrado.";
+        public const string SIZE_EXISTENTE = "El size ingresado ya existe.";
+    }
+
     public class IngredienteMessages
     {
         public const string INGREDIENTE_NOT_FOUND = "El identificador del ingrediente ingresado no se ha encontrado.";

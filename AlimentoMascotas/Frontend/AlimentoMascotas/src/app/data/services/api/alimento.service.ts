@@ -37,8 +37,7 @@ export class AlimentoService {
         response.data = r.data;
         return response;
       }),
-      catchError(_ => {
-        console.log(_.status);
+      catchError(_ => { 
         return of(response);
       })
     )

@@ -4,14 +4,16 @@ using AlimentoMascotas.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AlimentoMascotas.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220308151840_MyMigration")]
+    partial class MyMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -145,7 +147,7 @@ namespace AlimentoMascotas.Migrations
                             Id = 1,
                             EspecieId = 2,
                             EtapaId = 1,
-                            LastUpdate = new DateTime(2022, 3, 8, 16, 17, 21, 785, DateTimeKind.Utc).AddTicks(2237),
+                            LastUpdate = new DateTime(2022, 3, 8, 15, 18, 40, 153, DateTimeKind.Utc).AddTicks(116),
                             MarcaId = 1,
                             Name = "Alimento Raza para perros adultos sabor Pollo, Carne, Cereales y Arroz"
                         });
@@ -227,7 +229,7 @@ namespace AlimentoMascotas.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("QuantityGra")
-                        .HasColumnType("decimal(7,2)");
+                        .HasColumnType("decimal(5,2)");
 
                     b.Property<decimal>("QuantityPer")
                         .HasColumnType("decimal(5,2)");
@@ -237,64 +239,6 @@ namespace AlimentoMascotas.Migrations
                     b.HasIndex("AlimentoId");
 
                     b.ToTable("AnaliticoEnAlimento");
-
-                    b.HasData(
-                        new
-                        {
-                            AnaliticoId = 1,
-                            AlimentoId = 1,
-                            QuantityGra = 0m,
-                            QuantityPer = 21m
-                        },
-                        new
-                        {
-                            AnaliticoId = 2,
-                            AlimentoId = 1,
-                            QuantityGra = 0m,
-                            QuantityPer = 9m
-                        },
-                        new
-                        {
-                            AnaliticoId = 4,
-                            AlimentoId = 1,
-                            QuantityGra = 0m,
-                            QuantityPer = 3.5m
-                        },
-                        new
-                        {
-                            AnaliticoId = 3,
-                            AlimentoId = 1,
-                            QuantityGra = 0m,
-                            QuantityPer = 10m
-                        },
-                        new
-                        {
-                            AnaliticoId = 7,
-                            AlimentoId = 1,
-                            QuantityGra = 0m,
-                            QuantityPer = 12m
-                        },
-                        new
-                        {
-                            AnaliticoId = 8,
-                            AlimentoId = 1,
-                            QuantityGra = 0m,
-                            QuantityPer = 2m
-                        },
-                        new
-                        {
-                            AnaliticoId = 9,
-                            AlimentoId = 1,
-                            QuantityGra = 0m,
-                            QuantityPer = 1.3m
-                        },
-                        new
-                        {
-                            AnaliticoId = 10,
-                            AlimentoId = 1,
-                            QuantityGra = 3200m,
-                            QuantityPer = 0m
-                        });
                 });
 
             modelBuilder.Entity("AlimentoMascotas.Entities.EEspecie", b =>
@@ -603,33 +547,6 @@ namespace AlimentoMascotas.Migrations
                     b.HasIndex("AlimentoId");
 
                     b.ToTable("SizeEnAlimento");
-
-                    b.HasData(
-                        new
-                        {
-                            SizeId = 1,
-                            AlimentoId = 1
-                        },
-                        new
-                        {
-                            SizeId = 2,
-                            AlimentoId = 1
-                        },
-                        new
-                        {
-                            SizeId = 3,
-                            AlimentoId = 1
-                        },
-                        new
-                        {
-                            SizeId = 4,
-                            AlimentoId = 1
-                        },
-                        new
-                        {
-                            SizeId = 5,
-                            AlimentoId = 1
-                        });
                 });
 
             modelBuilder.Entity("AlimentoMascotas.Entities.EAditivoEnAlimento", b =>
@@ -725,7 +642,7 @@ namespace AlimentoMascotas.Migrations
                         .IsRequired();
 
                     b.HasOne("AlimentoMascotas.Entities.ESize", "Size")
-                        .WithMany("Alimentos")
+                        .WithMany()
                         .HasForeignKey("SizeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -774,11 +691,6 @@ namespace AlimentoMascotas.Migrations
             modelBuilder.Entity("AlimentoMascotas.Entities.EMarca", b =>
                 {
                     b.Navigation("Alimento");
-                });
-
-            modelBuilder.Entity("AlimentoMascotas.Entities.ESize", b =>
-                {
-                    b.Navigation("Alimentos");
                 });
 #pragma warning restore 612, 618
         }

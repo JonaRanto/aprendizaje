@@ -29,9 +29,23 @@ export class ProductsComponent implements OnInit {
       }
     });
   }
-  // CONVERTIR EN LISTA LA LISTA DE FORMATOS DE TAMAÑOS DEL ALIMENTO
-  // ORDENAR LOS INGREDIENTES, ANALITICOS Y ADITIVOS POR ORDEN DE CANTIDAD DESCENDEBNTE
-  // AÑADIR UN BOTÓN DE QUITAR TODOS LOS FILTROS
+
+  orderDescIngrediente(list: IApiIngrediente[]): IApiIngrediente[] {
+    var result: IApiIngrediente[] = [];
+    result = list.sort((a: IApiIngrediente, b: IApiIngrediente) => {
+      return b.quantityPer - a.quantityPer;
+    });
+    return result;
+  }
+
+  orderDescAnalitico(list: IApiAnalitico[]): IApiAnalitico[] {
+    var result: IApiAnalitico[] = [];
+    result = list.sort((a: IApiAnalitico, b: IApiAnalitico) => {
+      return (b.quantityPer + (b.quantityGra/1000)) - (a.quantityPer + (a.quantityGra/1000));
+    });
+    return result;
+  }
+
   getQuantityIngrediente(ingrediente: IApiIngrediente): string {
     if (ingrediente.quantityPer != 0) {
       return ingrediente.name + " " + ingrediente.quantityPer + "%";

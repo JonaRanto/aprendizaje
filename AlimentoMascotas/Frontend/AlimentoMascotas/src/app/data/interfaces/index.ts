@@ -7,6 +7,7 @@ export * from './api/iapi-ingrediente.metadata';
 export * from './api/iapi-aditivo.metadata';
 export * from './api/iapi-analitico.metadata';
 export * from './api/iapi-response.metadata';
+export * from './api/iapi-size.metadata';
 
 // UI
 export * from './ui/public/iheader-menu.metadata';

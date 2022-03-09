@@ -16,6 +16,14 @@
         public const string ALIMENTO_ADITIVOS = "agregar-aditivos/{alimentoId}";
         public const string ALIMENTO_ANALITICOS = "agregar-analiticos/{alimentoId}";
 
+        //SIZES
+        public const string MAIN_SIZE = "sizes";
+        public const string SIZE_LISTAR = "listar";
+        public const string SIZE_BUSCAR = "buscar/{sizeId}";
+        public const string SIZE_NUEVO = "nuevo";
+        public const string SIZE_ACTUALIZAR = "actualizar/{sizeId}";
+        public const string SIZE_ELIMINAR = "eliminar/{sizeId}";
+
         // INGREDIENTES
         public const string MAIN_INGREDIENTE = "ingrediente";
         public const string INGREDIENTE_LISTAR = "listar";
@@ -68,6 +76,7 @@
     public class InternalRoutes
     {
         public const string ALIMENTO = RoutesPaths.MAIN + "/" + RoutesPaths.MAIN_ALIMENTO;
+        public const string SIZE = RoutesPaths.MAIN + "/" + RoutesPaths.MAIN_SIZE;
         public const string INGREDIENTE = RoutesPaths.MAIN + "/" + RoutesPaths.MAIN_INGREDIENTE;
         public const string ADITIVO = RoutesPaths.MAIN + "/" + RoutesPaths.MAIN_ADITIVO;
         public const string ANALITICO = RoutesPaths.MAIN + "/" + RoutesPaths.MAIN_ANALITICO;

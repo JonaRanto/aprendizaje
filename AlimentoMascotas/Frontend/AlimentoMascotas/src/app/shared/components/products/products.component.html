@@ -15,19 +15,21 @@
                 <div class="ingredientes">
                     <h5>Ingredientes</h5>
                     <ul>
-                        <li *ngFor="let ingrediente of product.ingredientes | slice:0:4">{{getQuantityIngrediente(ingrediente)}}</li>
+                        <li *ngFor="let ingrediente of orderDescIngrediente(product.ingredientes) | slice:0:4">{{getQuantityIngrediente(ingrediente)}}</li>
                         <li *ngIf="product.ingredientes.length > 4">
                             <a href="">Ver más</a>
                         </li>
+                        <li *ngIf="product.ingredientes.length < 1">No especificado...</li>
                     </ul>
                 </div>
                 <div class="analiticos">
                     <h5>Analíticos</h5>
                     <ul>
-                        <li *ngFor="let analitico of product.analiticos | slice:0:4">{{getQuantityAnalitico(analitico)}}</li>
+                        <li *ngFor="let analitico of orderDescAnalitico(product.analiticos) | slice:0:4">{{getQuantityAnalitico(analitico)}}</li>
                         <li *ngIf="product.analiticos.length > 4">
                             <a href="">Ver más</a>
                         </li>
+                        <li *ngIf="product.analiticos.length < 1">No especificado...</li>
                     </ul>
                 </div>
             </div>

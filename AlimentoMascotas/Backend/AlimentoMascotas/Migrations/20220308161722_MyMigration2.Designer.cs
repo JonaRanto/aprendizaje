@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AlimentoMascotas.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220221212444_MyMigration")]
-    partial class MyMigration
+    [Migration("20220308161722_MyMigration2")]
+    partial class MyMigration2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -131,9 +131,6 @@ namespace AlimentoMascotas.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Size")
-                        .HasColumnType("decimal(5,2)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("EspecieId");
@@ -148,12 +145,11 @@ namespace AlimentoMascotas.Migrations
                         new
                         {
                             Id = 1,
-                            EspecieId = 1,
+                            EspecieId = 2,
                             EtapaId = 1,
-                            LastUpdate = new DateTime(2022, 2, 21, 21, 24, 44, 537, DateTimeKind.Utc).AddTicks(9275),
+                            LastUpdate = new DateTime(2022, 3, 8, 16, 17, 21, 785, DateTimeKind.Utc).AddTicks(2237),
                             MarcaId = 1,
-                            Name = "Alimento Raza para gatos sabor Pescado",
-                            Size = 1m
+                            Name = "Alimento Raza para perros adultos sabor Pollo, Carne, Cereales y Arroz"
                         });
                 });
 
@@ -201,6 +197,26 @@ namespace AlimentoMascotas.Migrations
                         {
                             Id = 6,
                             Name = "EPA/DHA"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Humedad"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Calcio"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "Fósforo"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Name = "Energía"
                         });
                 });
 
@@ -213,7 +229,7 @@ namespace AlimentoMascotas.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("QuantityGra")
-                        .HasColumnType("decimal(5,2)");
+                        .HasColumnType("decimal(7,2)");
 
                     b.Property<decimal>("QuantityPer")
                         .HasColumnType("decimal(5,2)");
@@ -223,6 +239,123 @@ namespace AlimentoMascotas.Migrations
                     b.HasIndex("AlimentoId");
 
                     b.ToTable("AnaliticoEnAlimento");
+
+                    b.HasData(
+                        new
+                        {
+                            AnaliticoId = 1,
+                            AlimentoId = 1,
+                            QuantityGra = 0m,
+                            QuantityPer = 21m
+                        },
+                        new
+                        {
+                            AnaliticoId = 2,
+                            AlimentoId = 1,
+                            QuantityGra = 0m,
+                            QuantityPer = 9m
+                        },
+                        new
+                        {
+                            AnaliticoId = 4,
+                            AlimentoId = 1,
+                            QuantityGra = 0m,
+                            QuantityPer = 3.5m
+                        },
+                        new
+                        {
+                            AnaliticoId = 3,
+                            AlimentoId = 1,
+                            QuantityGra = 0m,
+                            QuantityPer = 10m
+                        },
+                        new
+                        {
+                            AnaliticoId = 7,
+                            AlimentoId = 1,
+                            QuantityGra = 0m,
+                            QuantityPer = 12m
+                        },
+                        new
+                        {
+                            AnaliticoId = 8,
+                            AlimentoId = 1,
+                            QuantityGra = 0m,
+                            QuantityPer = 2m
+                        },
+                        new
+                        {
+                            AnaliticoId = 9,
+                            AlimentoId = 1,
+                            QuantityGra = 0m,
+                            QuantityPer = 1.3m
+                        },
+                        new
+                        {
+                            AnaliticoId = 10,
+                            AlimentoId = 1,
+                            QuantityGra = 3200m,
+                            QuantityPer = 0m
+                        });
+                });
+
+            modelBuilder.Entity("AlimentoMascotas.Entities.EEspecie", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Especie");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Gato"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Perro"
+                        });
+                });
+
+            modelBuilder.Entity("AlimentoMascotas.Entities.EEtapa", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Etapa");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Adulto"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Cachorro"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Senior"
+                        });
                 });
 
             modelBuilder.Entity("AlimentoMascotas.Entities.EIngrediente", b =>
@@ -417,57 +550,87 @@ namespace AlimentoMascotas.Migrations
                         });
                 });
 
-            modelBuilder.Entity("AlimentoMascotas.Entities.Especie", b =>
+            modelBuilder.Entity("AlimentoMascotas.Entities.ESize", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal>("Size")
+                        .HasColumnType("decimal(5,2)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Especie");
+                    b.ToTable("Size");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Name = "Gato"
+                            Size = 1.5m
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Perro"
+                            Size = 3m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Size = 8m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Size = 15m
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Size = 21m
                         });
                 });
 
-            modelBuilder.Entity("AlimentoMascotas.Entities.Etapa", b =>
+            modelBuilder.Entity("AlimentoMascotas.Entities.ESizeEnAlimento", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<int>("SizeId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("AlimentoId")
+                        .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("SizeId", "AlimentoId");
 
-                    b.ToTable("Etapa");
+                    b.HasIndex("AlimentoId");
+
+                    b.ToTable("SizeEnAlimento");
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            Name = "Adulto"
+                            SizeId = 1,
+                            AlimentoId = 1
                         },
                         new
                         {
-                            Id = 2,
-                            Name = "Cachorro"
+                            SizeId = 2,
+                            AlimentoId = 1
+                        },
+                        new
+                        {
+                            SizeId = 3,
+                            AlimentoId = 1
+                        },
+                        new
+                        {
+                            SizeId = 4,
+                            AlimentoId = 1
+                        },
+                        new
+                        {
+                            SizeId = 5,
+                            AlimentoId = 1
                         });
                 });
 
@@ -492,13 +655,13 @@ namespace AlimentoMascotas.Migrations
 
             modelBuilder.Entity("AlimentoMascotas.Entities.EAlimento", b =>
                 {
-                    b.HasOne("AlimentoMascotas.Entities.Especie", "Especie")
+                    b.HasOne("AlimentoMascotas.Entities.EEspecie", "Especie")
                         .WithOne("Alimento")
                         .HasForeignKey("AlimentoMascotas.Entities.EAlimento", "EspecieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AlimentoMascotas.Entities.Etapa", "Etapa")
+                    b.HasOne("AlimentoMascotas.Entities.EEtapa", "Etapa")
                         .WithOne("Alimento")
                         .HasForeignKey("AlimentoMascotas.Entities.EAlimento", "EtapaId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -555,6 +718,25 @@ namespace AlimentoMascotas.Migrations
                     b.Navigation("Ingrediente");
                 });
 
+            modelBuilder.Entity("AlimentoMascotas.Entities.ESizeEnAlimento", b =>
+                {
+                    b.HasOne("AlimentoMascotas.Entities.EAlimento", "Alimento")
+                        .WithMany("Sizes")
+                        .HasForeignKey("AlimentoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AlimentoMascotas.Entities.ESize", "Size")
+                        .WithMany("Alimentos")
+                        .HasForeignKey("SizeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Alimento");
+
+                    b.Navigation("Size");
+                });
+
             modelBuilder.Entity("AlimentoMascotas.Entities.EAditivo", b =>
                 {
                     b.Navigation("Alimentos");
@@ -567,11 +749,23 @@ namespace AlimentoMascotas.Migrations
                     b.Navigation("Analiticos");
 
                     b.Navigation("Ingredientes");
+
+                    b.Navigation("Sizes");
                 });
 
             modelBuilder.Entity("AlimentoMascotas.Entities.EAnalitico", b =>
                 {
                     b.Navigation("Alimentos");
+                });
+
+            modelBuilder.Entity("AlimentoMascotas.Entities.EEspecie", b =>
+                {
+                    b.Navigation("Alimento");
+                });
+
+            modelBuilder.Entity("AlimentoMascotas.Entities.EEtapa", b =>
+                {
+                    b.Navigation("Alimento");
                 });
 
             modelBuilder.Entity("AlimentoMascotas.Entities.EIngrediente", b =>
@@ -584,14 +778,9 @@ namespace AlimentoMascotas.Migrations
                     b.Navigation("Alimento");
                 });
 
-            modelBuilder.Entity("AlimentoMascotas.Entities.Especie", b =>
+            modelBuilder.Entity("AlimentoMascotas.Entities.ESize", b =>
                 {
-                    b.Navigation("Alimento");
-                });
-
-            modelBuilder.Entity("AlimentoMascotas.Entities.Etapa", b =>
-                {
-                    b.Navigation("Alimento");
+                    b.Navigation("Alimentos");
                 });
 #pragma warning restore 612, 618
         }

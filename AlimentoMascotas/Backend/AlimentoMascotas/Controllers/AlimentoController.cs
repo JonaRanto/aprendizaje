@@ -50,7 +50,6 @@ namespace AlimentoMascotas.Controllers
                     {
                         Id = ali_mar_esp.ali_mar.ali.Id,
                         Name = ali_mar_esp.ali_mar.ali.Name,
-                        Size = ali_mar_esp.ali_mar.ali.Size,
                         Marca = ali_mar_esp.ali_mar.mar.Name,
                         Especie = ali_mar_esp.esp.Name,
                         Etapa = eta.Name,
@@ -152,7 +151,6 @@ namespace AlimentoMascotas.Controllers
                     {
                         Id = ali_mar_esp.ali_mar.ali.Id,
                         Name = ali_mar_esp.ali_mar.ali.Name,
-                        Size = ali_mar_esp.ali_mar.ali.Size,
                         Marca = ali_mar_esp.ali_mar.mar.Name,
                         Especie = ali_mar_esp.esp.Name,
                         Etapa = eta.Name,
@@ -255,7 +253,6 @@ namespace AlimentoMascotas.Controllers
                 EAlimento eAlimento = new()
                 {
                     Name = alimento.Name,
-                    Size = alimento.Size,
                     MarcaId = alimento.MarcaId,
                     EspecieId = alimento.EspecieId,
                     EtapaId = alimento.EtapaId,
@@ -271,7 +268,6 @@ namespace AlimentoMascotas.Controllers
                 {
                     Id = eAlimento.Id,
                     Name = eAlimento.Name,
-                    Size = eAlimento.Size,
                     Marca = eAlimento.Marca.Name,
                     Especie = eAlimento.Especie.Name,
                     Etapa = eAlimento.Etapa.Name,
@@ -342,7 +338,6 @@ namespace AlimentoMascotas.Controllers
                 }
 
                 eAlimento.Name = alimento.Name;
-                eAlimento.Size = alimento.Size;
                 eAlimento.MarcaId = alimento.MarcaId;
                 eAlimento.EspecieId = alimento.EspecieId;
                 eAlimento.EtapaId = alimento.EtapaId;
@@ -357,7 +352,6 @@ namespace AlimentoMascotas.Controllers
                 {
                     Id = eAlimento.Id,
                     Name = eAlimento.Name,
-                    Size = eAlimento.Size,
                     Marca = marca.Name,
                     Especie = especie.Name,
                     Etapa = etapa.Name,
@@ -442,7 +436,6 @@ namespace AlimentoMascotas.Controllers
                 {
                     Id = eAlimento.Id,
                     Name = eAlimento.Name,
-                    Size = eAlimento.Size,
                     Marca = eAlimento.Marca.Name,
                     Especie = eAlimento.Especie.Name,
                     Etapa = eAlimento.Etapa.Name,
